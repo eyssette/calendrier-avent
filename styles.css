@@ -89,7 +89,7 @@ section.dayContent {
 	z-index:1;
 	font-size:2em;
 	max-height:500px;
-	overflow-y: scroll;
+	overflow-y: auto;
 }
 
 .closeButton {
