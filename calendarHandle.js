@@ -15,7 +15,7 @@ function handleCalendar() {
 	}
 
 	daySections.forEach((daySection) => {
-
+		const images = daySection.querySelector("h2+p")
 		const dayContent = daySection.querySelector(".dayContent");
 
 		// Parcourir chaque élément et ajouter la classe "datePassee" si nécessaire
@@ -25,6 +25,9 @@ function handleCalendar() {
 		// Vérifier si l'ID est inférieur au jour actuel
 		if (id < currentDay) {
 			daySection.classList.add("pastDate");
+			if (images.children.length == 2) {
+				images.children[0].remove();
+			}
 		}
 		if (id > currentDay) {
 			daySection.classList.add("futureDate");
