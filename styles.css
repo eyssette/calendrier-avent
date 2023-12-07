@@ -59,7 +59,11 @@ section.day.active {
 }
 
 section.pastDate {
-	opacity:0.4;
+	background: transparent;
+	border-color: transparent;
+}
+section.pastDate > h2 {
+	color:white;
 }
 
 section.dayContent {

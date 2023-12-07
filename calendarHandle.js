@@ -11,9 +11,6 @@ function handleCalendar() {
 			const dayContent = daySection.querySelector(".dayContent");
 			dayContent.style.display = "none";
 			daySection.classList.remove("active");
-			if (daySection.classList.contains("pastDate")) {
-				daySection.style.opacity = "0.4";
-			}
 		});
 	}
 
@@ -44,7 +41,6 @@ function handleCalendar() {
 				// Si c'est un jour futur, on n'affiche pas le contenu
 				dayContent.children[1].innerHTML = contentNotAvalaible;
 			}
-			daySection.style.opacity = "1";
 			dayContent.style.display = "block";
 			daySection.classList.add("active");
 			event.stopPropagation();
