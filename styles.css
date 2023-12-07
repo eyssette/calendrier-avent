@@ -24,6 +24,10 @@ header {
 	font-size:1.5em;
 }
 
+#initial-message a {
+	color:white;
+}
+
 main {
 	text-align: center;
 	display: flex;
