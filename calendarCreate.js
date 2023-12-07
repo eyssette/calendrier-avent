@@ -8,157 +8,157 @@ const defaultCalendar = `# Mon calendrier de l'Avent
 > 3. Votre calendrier de l'Avent sera alors disponible à l'adresse : https://eyssette.forge.aeif.fr/calendrier-avent#URL (en remplaçant URL par l'URL de votre fichier).
 
 ## 1
-![](https://publicdomainvectors.org/photos/johnny_automatic_Christmas_Tree_1.png)
+![](/img/johnny_automatic_Christmas_Tree_1.png)
 
 Contenu jour 1
 
 ## 2
-![](https://publicdomainvectors.org/photos/ralexandrec_Christmas_Ball.png)
+![](/img/ralexandrec_Christmas_Ball.png)
 
 Contenu jour 2
 
 ## 3
-![](https://publicdomainvectors.org/photos/nicubunu_Christmas_Candy.png)
+![](/img/nicubunu_Christmas_Candy.png)
 
 Contenu jour 3
 
 ## 4
-![](https://publicdomainvectors.org/photos/secretlondon_chocolate_present.png)
+![](/img/secretlondon_chocolate_present.png)
 
 Contenu jour 4
 
 ## 5
-![](https://publicdomainvectors.org/photos/xmas03.png)
+![](/img/xmas03.png)
 
 Contenu jour 5
 
 ## 6
-![](https://publicdomainvectors.org/photos/harmonic_Tree.png)
+![](/img/harmonic_Tree.png)
 
 Contenu jour 6
 
 ## 7
-![](https://publicdomainvectors.org/photos/oak-tree-covered-in-snow.png)
+![](/img/oak-tree-covered-in-snow.png)
 
 Contenu jour 7
 
 ## 8
-![](https://publicdomainvectors.org/photos/1542274483.png)
+![](/img/1542274483.png)
 
 Contenu jour 8
 
 ## 9
-![](https://publicdomainvectors.org/photos/johnny_automatic_Christmas_Tree_1.png)
+![](/img/johnny_automatic_Christmas_Tree_1.png)
 
 Contenu jour 9
 
 ## 10
-![](https://publicdomainvectors.org/photos/ralexandrec_Christmas_Ball.png)
+![](/img/ralexandrec_Christmas_Ball.png)
 
 Contenu jour 10
 
 ## 11
-![](https://publicdomainvectors.org/photos/nicubunu_Christmas_Candy.png)
+![](/img/nicubunu_Christmas_Candy.png)
 
 Contenu jour 11
 
 ## 12
-![](https://publicdomainvectors.org/photos/secretlondon_chocolate_present.png)
+![](/img/secretlondon_chocolate_present.png)
 
 Contenu jour 12
 
 ## 13
-![](https://publicdomainvectors.org/photos/xmas03.png)
+![](/img/xmas03.png)
 
 Contenu jour 13
 
 ## 14
-![](https://publicdomainvectors.org/photos/harmonic_Tree.png)
+![](/img/harmonic_Tree.png)
 
 Contenu jour 14
 
 ## 15
-![](https://publicdomainvectors.org/photos/oak-tree-covered-in-snow.png)
+![](/img/oak-tree-covered-in-snow.png)
 
 Contenu jour 15
 
 ## 16
-![](https://publicdomainvectors.org/photos/1542274483.png)
+![](/img/1542274483.png)
 
 Contenu jour 16
 
 ## 17
-![](https://publicdomainvectors.org/photos/johnny_automatic_Christmas_Tree_1.png)
+![](/img/johnny_automatic_Christmas_Tree_1.png)
 
 Contenu jour 17
 
 ## 18
-![](https://publicdomainvectors.org/photos/ralexandrec_Christmas_Ball.png)
+![](/img/ralexandrec_Christmas_Ball.png)
 
 Contenu jour 18
 
 ## 19
-![](https://publicdomainvectors.org/photos/nicubunu_Christmas_Candy.png)
+![](/img/nicubunu_Christmas_Candy.png)
 
 Contenu jour 19
 
 ## 20
-![](https://publicdomainvectors.org/photos/secretlondon_chocolate_present.png)
+![](/img/secretlondon_chocolate_present.png)
 
 Contenu jour 20
 
 ## 21
-![](https://publicdomainvectors.org/photos/xmas03.png)
+![](/img/xmas03.png)
 
 Contenu jour 21
 
 ## 22
-![](https://publicdomainvectors.org/photos/harmonic_Tree.png)
+![](/img/harmonic_Tree.png)
 
 Contenu jour 22
 
 ## 23
-![](https://publicdomainvectors.org/photos/oak-tree-covered-in-snow.png)
+![](/img/oak-tree-covered-in-snow.png)
 
 Contenu jour 23
 
 ## 24
-![](https://publicdomainvectors.org/photos/1542274483.png)
+![](/img/1542274483.png)
 
 Contenu jour 24
 
 ## 25
-![](https://publicdomainvectors.org/photos/johnny_automatic_Christmas_Tree_1.png)
+![](/img/johnny_automatic_Christmas_Tree_1.png)
 
 Contenu jour 	25
 
 ## 26
-![](https://publicdomainvectors.org/photos/ralexandrec_Christmas_Ball.png)
+![](/img/ralexandrec_Christmas_Ball.png)
 
 Contenu jour 26
 
 ## 27
-![](https://publicdomainvectors.org/photos/nicubunu_Christmas_Candy.png)
+![](/img/nicubunu_Christmas_Candy.png)
 
 Contenu jour 27
 
 ## 28
-![](https://publicdomainvectors.org/photos/secretlondon_chocolate_present.png)
+![](/img/secretlondon_chocolate_present.png)
 
 Contenu jour 28
 
 ## 29
-![](https://publicdomainvectors.org/photos/xmas03.png)
+![](/img/xmas03.png)
 
 Contenu jour 29
 
 ## 30
-![](https://publicdomainvectors.org/photos/harmonic_Tree.png)
+![](/img/harmonic_Tree.png)
 
 Contenu jour 30
 
 ## 31
-![](https://publicdomainvectors.org/photos/oak-tree-covered-in-snow.png)
+![](/img/oak-tree-covered-in-snow.png)
 
 Contenu jour 31
 `;
