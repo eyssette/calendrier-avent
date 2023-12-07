@@ -134,10 +134,17 @@ footer a {
 	footer a {
 		display: inline-block;
 	}
+	.day {
+		width:300px!important;
+		margin:auto;
+	}
+	.day img {
+		max-height:250px;
+	}
 	.dayContent {
-		margin-left:0!important;
+		margin-left:-20px!important;
 		font-size:1.2em!important;
 		max-height:initial!important;
-		max-width: 85%;
+		max-width: 300px!important;
 	}
 }
