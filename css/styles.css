@@ -179,6 +179,10 @@ footer a {
 	#initial-message {
 		font-size: 1.4em !important;
 	}
+	footer {
+		font-size: 1.4em !important;
+		line-height: 1.75em;
+	}
 	footer a {
 		display: inline-block;
 	}
