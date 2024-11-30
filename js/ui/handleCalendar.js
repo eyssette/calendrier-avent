@@ -1,4 +1,4 @@
-export function handleCalendar() {
+export function handleCalendar(startDay) {
 	const contentNotAvalaible =
 		"Ce n'est pas encore le bon jour, merci de patienter !";
 
@@ -25,7 +25,9 @@ export function handleCalendar() {
 		const id = parseInt(daySection.id.split("-")[1], 10);
 
 		// On affiche le contenu seulement si on est au mois de décembre et si le jour du contenu est égal ou inférieur au jour actuel
-		if (currentMonth == 11 && id <= currentDay) {
+		const displayFromDay = startDay ? startDay : currentDay;
+		const displayFromMonth = startDay ? currentMonth : 11;
+		if (currentMonth == displayFromMonth && id <= displayFromDay) {
 			daySection.classList.add("pastDate");
 			if (images.children.length == 2) {
 				images.children[0].remove();

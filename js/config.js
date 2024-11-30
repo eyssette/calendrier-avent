@@ -5,3 +5,5 @@ export const shortcuts = [
 ];
 
 export const corsProxy = "https://corsproxy.io/?";
+
+export const startDay = 4;

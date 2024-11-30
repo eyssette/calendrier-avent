@@ -6,6 +6,8 @@
 > 2. Ce fichier doit comporter : un titre, un bloc de citation qui constituera le message initial, ainsi que pour chaque jour un titre, au moins une image et du contenu qui s'affichera quand on clique dessus. Vous pouvez récupérer [ce modèle](https://codimd.apps.education.fr/-PbI3GizQo6xV-TEiU1-sA?both).
 > 3. Votre calendrier de l'avent sera alors disponible à l'adresse : https://calendrier-avent.forge.apps.education.fr/#URL (en remplaçant URL par l'URL de votre fichier).
 > 4. Il est possible de cacher l'URL de votre fichier avec : https://calendrier-avent.forge.apps.education.fr/?c=1#URL (l'URL doit être encodée avec base64)
+>
+> Pour montrer comment le site fonctionne, les 4 premiers jours sont visibles et le reste est caché. Si vous créez votre propre calendrier, le contenu d'un jour ne s'affiche que si nous sommes en décembre et que la date est antérieure ou égale à aujourd'hui.
 
 ## 1
 

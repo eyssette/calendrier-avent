@@ -2,6 +2,7 @@ import defaultMD from "../../content.md";
 import { createCalendar } from "../ui/createCalendar";
 import { handleURL } from "../utils/urls";
 import { parseMarkdown } from "./parseMarkdown";
+import { startDay } from "../config";
 
 let calendarData;
 let md = defaultMD;
@@ -22,6 +23,6 @@ export function getMarkdownContentAndCreateCalendar() {
 			.catch((error) => console.error(error));
 	} else {
 		calendarData = parseMarkdown(md);
-		createCalendar(calendarData);
+		createCalendar(calendarData, startDay);
 	}
 }

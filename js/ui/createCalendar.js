@@ -1,6 +1,6 @@
 import { handleCalendar } from "./handleCalendar";
 
-export function createCalendar(data) {
+export function createCalendar(data, startDay) {
 	const titleElement = document.getElementById("title");
 	const initialMessageElement = document.getElementById("initial-message");
 	const mainElement = document.getElementById("calendar");
@@ -18,5 +18,5 @@ export function createCalendar(data) {
 	}
 	// On affiche le calendrier
 	mainElement.innerHTML = calendar;
-	handleCalendar();
+	handleCalendar(startDay);
 }
