@@ -1,5 +1,6 @@
-function handleCalendar() {
-	const contentNotAvalaible = "Ce n'est pas encore le bon jour, merci de patienter !"
+export function handleCalendar() {
+	const contentNotAvalaible =
+		"Ce n'est pas encore le bon jour, merci de patienter !";
 
 	const daySections = document.querySelectorAll(".day");
 	// Récupérer la date actuelle
@@ -15,7 +16,7 @@ function handleCalendar() {
 	}
 
 	daySections.forEach((daySection) => {
-		const images = daySection.querySelector("h2+p")
+		const images = daySection.querySelector("h2+p");
 		const dayContent = daySection.querySelector(".dayContent");
 
 		// Parcourir chaque élément et ajouter la classe "datePassee" si nécessaire
@@ -33,8 +34,6 @@ function handleCalendar() {
 			daySection.classList.add("futureDate");
 		}
 
-
-		
 		const closeButton = daySection.querySelector(".closeButton");
 
 		// Afficher dayContent lors du clic sur day
@@ -60,10 +59,9 @@ function handleCalendar() {
 			}
 		});
 
-		closeButton.addEventListener("click", function(event) {
+		closeButton.addEventListener("click", function (event) {
 			dayContentHide();
-		})
-
+		});
 
 		// Empêcher la propagation du clic à partir de dayContent vers le document
 		dayContent.addEventListener("click", function (event) {
