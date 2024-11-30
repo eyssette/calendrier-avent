@@ -50,10 +50,13 @@ section.day {
 	cursor: pointer;
 }
 
-img {
+.day img {
 	width: 75px;
 	height: 75px;
 	object-fit: contain;
+}
+.day.hasTitle img {
+	height: 50px;
 }
 
 h2 {
@@ -63,6 +66,13 @@ h2 {
 
 h2 + p img:nth-of-type(2) {
 	display: none;
+}
+.futureDate h2 span {
+	display: none;
+}
+.pastDate h2 span {
+	display: block;
+	font-size: 0.5em !important;
 }
 
 section.day:not(.active):hover {

@@ -24,12 +24,12 @@ export function parseMarkdown(markdownContent) {
 			initialMessageContent.push(line);
 		} else {
 			if (line.startsWith("## ")) {
+				let titleH2 = line.replace("## ", "").trim();
+				titleH2 = titleH2 == day ? "" : titleH2;
+				const hasTitle = titleH2 ? "hasTitle" : "";
 				line = initialMessageComputed
-					? '</section></section></section>\n\n<section markdown class="day" id="day-' +
-						day +
-						'">' +
-						line
-					: '\n<section markdown class="day" id="day-' + day + '">\n\n' + line;
+					? `</section></section></section>\n\n<section markdown class="day ${hasTitle}" id="day-${day}"><h2>${day}<span>${titleH2}</span></h2>`
+					: `\n<section markdown class="day ${hasTitle}" id="day-${day}"><h2>${day}<span>${titleH2}</span></h2>`;
 				initialMessageComputed = true;
 				initialImageComputed = false;
 				day++;

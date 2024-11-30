@@ -25,7 +25,7 @@ export function handleCalendar() {
 		const id = parseInt(daySection.id.split("-")[1], 10);
 
 		// On affiche le contenu seulement si on est au mois de décembre et si le jour du contenu est égal ou inférieur au jour actuel
-		if (currentMonth == 11 && id <= currentDay) {
+		if (currentMonth == 10 && id <= currentDay) {
 			daySection.classList.add("pastDate");
 			if (images.children.length == 2) {
 				images.children[0].remove();
