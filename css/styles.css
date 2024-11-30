@@ -4,7 +4,6 @@ body {
 	margin: auto;
 	background: url("/img/background.jpg");
 	background-size: cover;
-	background-blend-mode: darken;
 }
 
 h1 {
@@ -172,6 +171,9 @@ footer a {
 }
 
 @media screen and (max-width: 500px) {
+	body {
+		background-size: auto;
+	}
 	main {
 		margin-top: 1.5em;
 		padding: 10px;
