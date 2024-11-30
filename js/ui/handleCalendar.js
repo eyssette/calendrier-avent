@@ -6,6 +6,7 @@ export function handleCalendar() {
 	// Récupérer la date actuelle
 	const currentDate = new Date();
 	const currentDay = currentDate.getDate();
+	const currentMonth = currentDate.getMonth();
 
 	function dayContentHide() {
 		daySections.forEach((daySection) => {
@@ -23,14 +24,13 @@ export function handleCalendar() {
 		// Extraire l'ID du jour à partir de l'attribut "id"
 		const id = parseInt(daySection.id.split("-")[1], 10);
 
-		// Vérifier si l'ID est inférieur au jour actuel
-		if (id < currentDay) {
+		// On affiche le contenu seulement si on est au mois de décembre et si le jour du contenu est égal ou inférieur au jour actuel
+		if (currentMonth == 11 && id <= currentDay) {
 			daySection.classList.add("pastDate");
 			if (images.children.length == 2) {
 				images.children[0].remove();
 			}
-		}
-		if (id > currentDay) {
+		} else {
 			daySection.classList.add("futureDate");
 		}
 
