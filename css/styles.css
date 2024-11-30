@@ -183,12 +183,12 @@ footer a {
 		display: inline-block;
 	}
 	.day {
-		margin: auto;
+		margin: 30px 20%;
 	}
 	.dayContent {
-		margin-left: 0px !important;
 		max-height: initial !important;
-		max-width: 300px;
+		width: 75% !important;
+		margin: 5% !important;
 	}
 	.active .dayContent {
 		display: block !important;
