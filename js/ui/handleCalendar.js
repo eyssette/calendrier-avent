@@ -28,7 +28,8 @@ export function handleCalendar(startDay) {
 		const displayFromDay = startDay ? startDay : currentDay;
 		const displayFromMonth = startDay ? currentMonth : 11;
 		if (currentMonth == displayFromMonth && id <= displayFromDay) {
-			daySection.classList.add("pastDate");
+			const classToAdd = id == displayFromDay ? "currentDate" : "pastDate";
+			daySection.classList.add(classToAdd);
 			if (images.children.length == 2) {
 				images.children[0].remove();
 			}

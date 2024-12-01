@@ -77,7 +77,8 @@ h2 {
 h2 + p img:nth-of-type(2) {
 	display: none;
 }
-.futureDate h2 span {
+.futureDate h2 span,
+.currentDate h2 span {
 	display: none;
 }
 .hasTitle.pastDate h2 span {
@@ -101,6 +102,9 @@ section.day.active {
 
 section.pastDate {
 	background: #064cff3d;
+}
+section.currentDate {
+	background: #34bb3570 !important;
 }
 section.pastDate > h2 {
 	color: white;
