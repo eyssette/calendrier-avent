@@ -291,3 +291,24 @@ footer a {
 	animation-duration: 9s;
 	animation-delay: 6s;
 }
+
+.currentDate.bounce {
+	animation: bounce 1.5s infinite;
+}
+
+/* Animation bondissante plus prononcée */
+@keyframes bounce {
+	0%,
+	20%,
+	50%,
+	80%,
+	100% {
+		transform: translateY(0); /* Position de repos */
+	}
+	40% {
+		transform: translateY(-20px); /* Saut plus haut */
+	}
+	60% {
+		transform: translateY(-10px); /* Rebond plus marqué */
+	}
+}

@@ -9,6 +9,7 @@ export function handleCalendar(startDay) {
 	const currentMonth = currentDate.getMonth();
 
 	function dayContentHide() {
+		document.querySelector(".currentDate").classList.add("bounce");
 		daySections.forEach((daySection) => {
 			const dayContent = daySection.querySelector(".dayContent");
 			dayContent.style.display = "none";
@@ -46,6 +47,9 @@ export function handleCalendar(startDay) {
 				// Si c'est un jour futur, on n'affiche pas le contenu
 				dayContent.children[1].innerHTML = contentNotAvalaible;
 			}
+			if (daySection.classList.contains("currentDate")) {
+				document.querySelector(".currentDate").classList.remove("bounce");
+			}
 			dayContent.style.display = "block";
 			daySection.classList.add("active");
 			event.stopPropagation();
@@ -71,4 +75,5 @@ export function handleCalendar(startDay) {
 			event.stopPropagation();
 		});
 	});
+	document.querySelector(".currentDate").classList.add("bounce");
 }
