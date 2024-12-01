@@ -111,7 +111,7 @@ section.dayContent {
 	box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
 	display: none;
 	font-size: 2em;
-	max-height: 500px;
+	max-height: 80vh;
 	overflow-y: auto;
 	padding: 20px;
 	position: fixed;
@@ -192,9 +192,9 @@ footer a {
 		margin: 30px 20%;
 	}
 	.dayContent {
-		max-height: initial !important;
 		width: 75% !important;
 		margin: 5% !important;
+		font-size: 1.5em !important;
 	}
 	.active .dayContent {
 		display: block !important;
