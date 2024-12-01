@@ -4,6 +4,7 @@ body {
 	margin: auto;
 	background: url("/img/background.jpg");
 	background-size: cover;
+	word-wrap: break-word;
 }
 
 h1 {
