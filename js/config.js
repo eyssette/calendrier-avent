@@ -2,6 +2,10 @@
 
 export const shortcuts = [
 	["forge", "https://codimd.apps.education.fr/ZUVD8cy0SMaAnfiYukWlEw/download"],
+	[
+		"domainepublic",
+		"https://codimd.apps.education.fr/1kff53LkSJmbW45EUBXNaQ/download",
+	],
 ];
 
 export const corsProxy = "https://corsproxy.io/?";
