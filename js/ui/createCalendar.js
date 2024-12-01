@@ -1,4 +1,6 @@
 import { handleCalendar } from "./handleCalendar";
+import { yaml } from "../processMarkdown/yaml";
+import { convertLatexExpressions } from "../processMarkdown/convertLatex";
 
 export function createCalendar(data, startDay) {
 	const titleElement = document.getElementById("title");
@@ -17,6 +19,16 @@ export function createCalendar(data, startDay) {
 		initialMessageElement.style.display = "none";
 	}
 	// On affiche le calendrier
-	mainElement.innerHTML = calendar;
-	handleCalendar(startDay);
+	if (yaml && yaml.maths) {
+		setTimeout(() => {
+			initialMessageElement.innerHTML = convertLatexExpressions(
+				initialMessageElement.innerHTML,
+			);
+			mainElement.innerHTML = convertLatexExpressions(calendar);
+			handleCalendar(startDay);
+		}, 200);
+	} else {
+		mainElement.innerHTML = calendar;
+		handleCalendar(startDay);
+	}
 }

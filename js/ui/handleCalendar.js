@@ -66,7 +66,7 @@ export function handleCalendar(startDay) {
 			}
 		});
 
-		closeButton.addEventListener("click", function (event) {
+		closeButton.addEventListener("click", function () {
 			dayContentHide();
 		});
 

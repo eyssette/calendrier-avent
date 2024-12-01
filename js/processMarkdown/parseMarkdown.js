@@ -1,7 +1,11 @@
 import { markdownToHTML } from "./markdownToHTML";
+import { processYAML } from "./yaml";
 
 export function parseMarkdown(markdownContent) {
-	const lines = markdownContent.split("\n");
+	processYAML(markdownContent);
+	const indexFirstH1title = markdownContent.indexOf("# ");
+	const mainContent = markdownContent.substring(indexFirstH1title);
+	const lines = mainContent.split("\n");
 	let calendarData = [];
 	let calendarTitle = "Mon calendrier de l'Avent";
 	let initialMessageComputed = false;
