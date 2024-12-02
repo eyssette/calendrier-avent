@@ -179,6 +179,58 @@ footer a {
 	color: white;
 }
 
+.admonition {
+	margin-top: 1em;
+	border-radius: 5px;
+	padding: 0.5em 1em;
+	background-color: #eee;
+}
+
+.admonition.info,
+.admonition.note,
+.admonition.spoiler {
+	background-color: rgb(194, 225, 235);
+}
+.admonition.tip,
+.admonition.success {
+	background-color: rgb(207 235 194);
+}
+.admonition.warning,
+.admonition.danger,
+.admonition.bug {
+	background-color: rgb(241 200 200);
+}
+
+.admonitionContent {
+	font-size: 0.95em;
+}
+
+.admonitionTitle {
+	font-weight: bold;
+	font-size: 0.9em;
+}
+
+.admonitionTitle:before {
+	font-weight: 300;
+	margin-right: 0.5em;
+	font-size: 1.15em;
+}
+.info .admonitionTitle,
+.note .admonitionTitle,
+.spoiler .admonitionTitle {
+	color: #0b0258;
+}
+
+.tip .admonitionTitle,
+.success .admonitionTitle {
+	color: #012e14;
+}
+.warning .admonitionTitle,
+.danger .admonitionTitle,
+.bug .admonitionTitle {
+	color: #470302;
+}
+
 @media screen and (max-width: 500px) {
 	body {
 		background-size: auto;
