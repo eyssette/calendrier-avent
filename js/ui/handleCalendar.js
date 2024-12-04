@@ -1,3 +1,5 @@
+import { yaml } from "../processMarkdown/yaml";
+
 export function handleCalendar(startDay) {
 	const contentNotAvalaible =
 		"Ce n'est pas encore le bon jour, merci de patienter !";
@@ -9,7 +11,9 @@ export function handleCalendar(startDay) {
 	const currentMonth = currentDate.getMonth();
 
 	function dayContentHide() {
-		document.querySelector(".currentDate").classList.add("bounce");
+		if (!yaml || yaml.bouncingEffect != false) {
+			document.querySelector(".currentDate").classList.add("bounce");
+		}
 		daySections.forEach((daySection) => {
 			const dayContent = daySection.querySelector(".dayContent");
 			dayContent.style.display = "none";
@@ -75,5 +79,7 @@ export function handleCalendar(startDay) {
 			event.stopPropagation();
 		});
 	});
-	document.querySelector(".currentDate").classList.add("bounce");
+	if (!yaml || yaml.bouncingEffect != false) {
+		document.querySelector(".currentDate").classList.add("bounce");
+	}
 }

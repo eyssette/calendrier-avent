@@ -1,5 +1,6 @@
 import { markdownToHTML } from "./markdownToHTML";
-import { processYAML } from "./yaml";
+import { processYAML, yaml } from "./yaml";
+import { shuffleArray } from "../utils/arrays";
 
 export function parseMarkdown(markdownContent) {
 	processYAML(markdownContent);
@@ -72,7 +73,9 @@ export function parseMarkdown(markdownContent) {
 		calendarMarkdown.push(fullDayHtml);
 		day++;
 	}
-
+	if (yaml && yaml.random == true) {
+		shuffleArray(calendarMarkdown);
+	}
 	// Ajout de la dernière fermeture, si nécessaire
 	if (calendarMarkdown.length > 0) {
 		calendarMarkdown[calendarMarkdown.length - 1] +=
