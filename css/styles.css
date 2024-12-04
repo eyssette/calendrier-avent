@@ -63,6 +63,7 @@ section.day {
 	width: initial !important;
 	height: initial !important;
 	max-width: 100%;
+	max-height: fit-content !important;
 }
 
 h1,
@@ -266,7 +267,7 @@ iframe {
 	}
 	.day img {
 		width: 110px;
-		height: 120px;
+		height: 120px !important;
 		object-fit: contain;
 	}
 	.day.hasTitle.pastDate img {
