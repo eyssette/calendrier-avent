@@ -127,13 +127,14 @@ section.dayContent {
 	position: fixed;
 	width: 60%;
 	z-index: 1;
-	left: 0;
 	top: 0;
-	margin: auto;
 	height: 80%;
-	margin: 5% 15%;
 	transform: translate(0%, -25%);
 	text-align: left;
+	max-width: 900px;
+	left: 0;
+	right: 0;
+	margin: 5% auto;
 }
 
 section.day.active .dayContent {
