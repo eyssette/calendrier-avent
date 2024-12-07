@@ -3,11 +3,12 @@
 > Ce site vous permet de créer un calendrier de l'Avent personnalisé
 >
 > 1. Créez un fichier sur CodiMD ou sur une forge.
-> 2. Ce fichier doit comporter : un titre, un bloc de citation qui constituera le message initial, ainsi que pour chaque jour un titre, au moins une image et du contenu qui s'affichera quand on clique dessus. Vous pouvez récupérer [ce modèle](https://codimd.apps.education.fr/-PbI3GizQo6xV-TEiU1-sA?both).
-> 3. Votre calendrier de l'avent sera alors disponible à l'adresse : https://calendrier-avent.forge.apps.education.fr/#URL (en remplaçant URL par l'URL de votre fichier).
-> 4. Il est possible de cacher l'URL de votre fichier avec : https://calendrier-avent.forge.apps.education.fr/?c=1#URL (l'URL doit être encodée avec base64)
+> 2. Utilisez [ce modèle](https://codimd.apps.education.fr/-PbI3GizQo6xV-TEiU1-sA?both) pour créer votre calendrier
+> 3. Votre calendrier de l'avent sera alors disponible à l'adresse : <br>https://calendrier-avent.forge.apps.education.fr/#URL (en remplaçant URL par l'URL de votre fichier).
+> 4. Il est possible de cacher l'URL de votre fichier avec le paramètre `?c=1` : <br>https://calendrier-avent.forge.apps.education.fr/?c=1#URL (l'URL doit être encodée avec base64)
 >
-> Pour montrer comment le site fonctionne, les 4 premiers jours sont visibles et le reste est caché. Si vous créez votre propre calendrier, le contenu d'un jour ne s'affiche que si nous sommes en décembre et que la date est antérieure ou égale à aujourd'hui.
+> Pour montrer ci-dessous comment le site fonctionne, les 4 premiers jours sont visibles et le reste est caché.
+> Si vous créez votre propre calendrier, les cases s'affichent automatiquement jour après jour en décembre.
 
 ## 1
 

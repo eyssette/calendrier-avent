@@ -18,7 +18,7 @@ header {
 }
 
 #initial-message {
-	max-width: 1200px;
+	max-width: 950px;
 	visibility: hidden;
 	text-align: left;
 	padding: 0.5em 1em;
