@@ -275,6 +275,11 @@ iframe {
 		height: 90px !important;
 		width: 100px !important;
 	}
+	.day.hasTitle.pastDate .dayContent img,
+	.dayContent img {
+		width: initial !important;
+		height: initial !important;
+	}
 	.dayContent {
 		width: 75% !important;
 		margin: 5% !important;
