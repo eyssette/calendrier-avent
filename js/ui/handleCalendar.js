@@ -10,8 +10,19 @@ export function handleCalendar(startDay) {
 	const currentDay = currentDate.getDate();
 	const currentMonth = currentDate.getMonth();
 
+	let reveal = yaml && yaml.reveal ? yaml.reveal : false;
+	let date;
+	if (yaml && yaml.revealAfter) {
+		const [day, month, year] = yaml.revealAfter.split("/").map(Number);
+		date = new Date(year, month - 1, day);
+		reveal = currentDate > date ? true : false;
+	}
+	const hideBouncingEffet =
+		(yaml && yaml.bouncingEffect == false) || reveal == true;
+	const showBouncingEffect = !hideBouncingEffet;
+
 	function dayContentHide() {
-		if (!yaml || yaml.bouncingEffect != false) {
+		if (showBouncingEffect) {
 			document.querySelector(".currentDate").classList.add("bounce");
 		}
 		daySections.forEach((daySection) => {
@@ -25,15 +36,15 @@ export function handleCalendar(startDay) {
 		const images = daySection.querySelector("h2+p");
 		const dayContent = daySection.querySelector(".dayContent");
 
-		// Parcourir chaque élément et ajouter la classe "datePassee" si nécessaire
+		// Parcourir chaque élément et ajouter la classe "pastDate" si nécessaire
 		// Extraire l'ID du jour à partir de l'attribut "id"
 		const id = parseInt(daySection.id.split("-")[1], 10);
-
 		// On affiche le contenu seulement si on est au mois de décembre et si le jour du contenu est égal ou inférieur au jour actuel
 		const displayFromDay = startDay ? startDay : currentDay;
 		const displayFromMonth = startDay ? currentMonth : 11;
-		if (currentMonth == displayFromMonth && id <= displayFromDay) {
-			const classToAdd = id == displayFromDay ? "currentDate" : "pastDate";
+		if ((currentMonth == displayFromMonth && id <= displayFromDay) || reveal) {
+			const classToAdd =
+				id == displayFromDay && !reveal ? "currentDate" : "pastDate";
 			daySection.classList.add(classToAdd);
 			if (images.children.length == 2 && id < displayFromDay) {
 				images.children[0].remove();
@@ -79,7 +90,7 @@ export function handleCalendar(startDay) {
 			event.stopPropagation();
 		});
 	});
-	if (!yaml || yaml.bouncingEffect != false) {
+	if (showBouncingEffect) {
 		document.querySelector(".currentDate").classList.add("bounce");
 	}
 }
