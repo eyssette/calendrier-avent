@@ -1,5 +1,32 @@
 import { yaml } from "../processMarkdown/yaml";
 
+function shouldDisplayDay(
+	id,
+	currentDay,
+	currentMonth,
+	displayFromMonth,
+	displayFrom,
+) {
+	let shouldDisplay = false;
+	if (displayFrom) {
+		console.log(displayFrom.gapDays);
+		shouldDisplay =
+			currentMonth == displayFrom.month &&
+			currentDay >= displayFrom.day + (id - 1) * (displayFrom.gapDays + 1);
+	} else {
+		shouldDisplay = currentMonth == displayFromMonth && id <= currentDay;
+	}
+	return shouldDisplay;
+}
+
+function idRepresentsCurrentDay(id, currentDay, displayFrom) {
+	if (displayFrom) {
+		return currentDay == displayFrom.day + (id - 1) * (displayFrom.gapDays + 1);
+	} else {
+		return id == currentDay;
+	}
+}
+
 export function handleCalendar(startDay) {
 	const contentNotAvalaible =
 		"Ce n'est pas encore le bon jour, merci de patienter !";
@@ -7,8 +34,8 @@ export function handleCalendar(startDay) {
 	const daySections = document.querySelectorAll(".day");
 	// Récupérer la date actuelle
 	const currentDate = new Date();
-	const currentDay = currentDate.getDate();
-	const currentMonth = currentDate.getMonth();
+	let currentDay = currentDate.getDate();
+	const currentMonth = currentDate.getMonth() + 1;
 
 	let reveal = yaml && yaml.reveal ? yaml.reveal : false;
 	let date;
@@ -17,13 +44,24 @@ export function handleCalendar(startDay) {
 		date = new Date(year, month - 1, day);
 		reveal = currentDate > date ? true : false;
 	}
+	let displayFrom = false;
+	if (yaml && yaml.displayFrom && yaml.gapDays >= 0) {
+		const [day, month, year] = yaml.displayFrom.split("/").map(Number);
+		displayFrom = {
+			day: day,
+			month: month,
+			year: year,
+			gapDays: yaml.gapDays,
+		};
+	}
 	const hideBouncingEffet =
 		(yaml && yaml.bouncingEffect == false) || reveal == true;
 	const showBouncingEffect = !hideBouncingEffet;
 
 	function dayContentHide() {
-		if (showBouncingEffect) {
-			document.querySelector(".currentDate").classList.add("bounce");
+		const currentDateSelector = document.querySelector(".currentDate");
+		if (showBouncingEffect && currentDateSelector) {
+			currentDateSelector.classList.add("bounce");
 		}
 		daySections.forEach((daySection) => {
 			const dayContent = daySection.querySelector(".dayContent");
@@ -40,13 +78,24 @@ export function handleCalendar(startDay) {
 		// Extraire l'ID du jour à partir de l'attribut "id"
 		const id = parseInt(daySection.id.split("-")[1], 10);
 		// On affiche le contenu seulement si on est au mois de décembre et si le jour du contenu est égal ou inférieur au jour actuel
-		const displayFromDay = startDay ? startDay : currentDay;
-		const displayFromMonth = startDay ? currentMonth : 11;
-		if ((currentMonth == displayFromMonth && id <= displayFromDay) || reveal) {
+		currentDay = startDay ? startDay : currentDay;
+		const displayFromMonth = startDay ? currentMonth : 12;
+		if (
+			shouldDisplayDay(
+				id,
+				currentDay,
+				currentMonth,
+				displayFromMonth,
+				displayFrom,
+			) ||
+			reveal
+		) {
 			const classToAdd =
-				id == displayFromDay && !reveal ? "currentDate" : "pastDate";
+				idRepresentsCurrentDay(id, currentDay, displayFrom) && !reveal
+					? "currentDate"
+					: "pastDate";
 			daySection.classList.add(classToAdd);
-			if ((images.children.length == 2 && id < displayFromDay) || reveal) {
+			if ((images.children.length == 2 && id < currentDay) || reveal) {
 				images.children[0].remove();
 			}
 		} else {
@@ -90,7 +139,8 @@ export function handleCalendar(startDay) {
 			event.stopPropagation();
 		});
 	});
-	if (showBouncingEffect) {
-		document.querySelector(".currentDate").classList.add("bounce");
+	const currentDateSelector = document.querySelector(".currentDate");
+	if (showBouncingEffect && currentDateSelector) {
+		currentDateSelector.classList.add("bounce");
 	}
 }
