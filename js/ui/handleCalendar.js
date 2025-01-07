@@ -45,13 +45,13 @@ export function handleCalendar(startDay) {
 		reveal = currentDate > date ? true : false;
 	}
 	let displayFrom = false;
-	if (yaml && yaml.displayFrom && yaml.gapDays >= 0) {
+	if (yaml && yaml.displayFrom) {
 		const [day, month, year] = yaml.displayFrom.split("/").map(Number);
 		displayFrom = {
 			day: day,
 			month: month,
 			year: year,
-			gapDays: yaml.gapDays,
+			gapDays: yaml.gapDays || 0,
 		};
 	}
 	const hideBouncingEffet =
