@@ -31,10 +31,24 @@ export function handleCalendar(startDay) {
 	const userPrefersReducedMotion = window.matchMedia(
 		"(prefers-reduced-motion: reduce)",
 	).matches;
+	const snowContainer = document.body.querySelector(".snow-container");
 	if (userPrefersReducedMotion) {
-		const snowContainer = document.body.querySelector(".snow-container");
 		snowContainer.style.display = "none";
 	}
+	let showBouncingEffect;
+	let reveal = yaml && yaml.reveal ? yaml.reveal : false;
+	const hideBouncingEffet =
+		(yaml && yaml.bouncingEffect == false) ||
+		reveal == true ||
+		userPrefersReducedMotion;
+	showBouncingEffect = !hideBouncingEffet;
+	const switchSnowElement = document.body.querySelector("input");
+	switchSnowElement.addEventListener("click", () => {
+		snowContainer.style.display =
+			snowContainer.style.display == "none" ? "block" : "none";
+		showBouncingEffect = !showBouncingEffect;
+		dayContentHide();
+	});
 	const contentNotAvalaible =
 		"Ce n'est pas encore le bon jour, merci de patienter !";
 
@@ -44,7 +58,6 @@ export function handleCalendar(startDay) {
 	let currentDay = currentDate.getDate();
 	const currentMonth = currentDate.getMonth() + 1;
 
-	let reveal = yaml && yaml.reveal ? yaml.reveal : false;
 	let date;
 	if (yaml && yaml.revealAfter) {
 		const [day, month, year] = yaml.revealAfter.split("/").map(Number);
@@ -61,16 +74,15 @@ export function handleCalendar(startDay) {
 			gapDays: yaml.gapDays || 0,
 		};
 	}
-	const hideBouncingEffet =
-		(yaml && yaml.bouncingEffect == false) ||
-		reveal == true ||
-		userPrefersReducedMotion;
-	const showBouncingEffect = !hideBouncingEffet;
 
 	function dayContentHide() {
 		const currentDateSelector = document.querySelector(".currentDate");
-		if (showBouncingEffect && currentDateSelector) {
-			currentDateSelector.classList.add("bounce");
+		if (currentDateSelector) {
+			if (showBouncingEffect) {
+				currentDateSelector.classList.add("bounce");
+			} else {
+				currentDateSelector.classList.remove("bounce");
+			}
 		}
 		daySections.forEach((daySection) => {
 			const dayContent = daySection.querySelector(".dayContent");
