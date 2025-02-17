@@ -28,6 +28,13 @@ function idRepresentsCurrentDay(id, currentDay, displayFrom) {
 }
 
 export function handleCalendar(startDay) {
+	const userPrefersReducedMotion = window.matchMedia(
+		"(prefers-reduced-motion: reduce)",
+	).matches;
+	if (userPrefersReducedMotion) {
+		const snowContainer = document.body.querySelector(".snow-container");
+		snowContainer.style.display = "none";
+	}
 	const contentNotAvalaible =
 		"Ce n'est pas encore le bon jour, merci de patienter !";
 
@@ -55,7 +62,9 @@ export function handleCalendar(startDay) {
 		};
 	}
 	const hideBouncingEffet =
-		(yaml && yaml.bouncingEffect == false) || reveal == true;
+		(yaml && yaml.bouncingEffect == false) ||
+		reveal == true ||
+		userPrefersReducedMotion;
 	const showBouncingEffect = !hideBouncingEffet;
 
 	function dayContentHide() {
