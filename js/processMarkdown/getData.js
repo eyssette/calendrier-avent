@@ -1,4 +1,4 @@
-import defaultMD from "../../content.md";
+import defaultMD from "../../index.md";
 import { createCalendar } from "../ui/createCalendar";
 import { handleURL } from "../utils/urls";
 import { parseMarkdown } from "./parseMarkdown";
@@ -7,22 +7,53 @@ import { startDay } from "../config";
 let calendarData;
 let md = defaultMD;
 
-export function getMarkdownContentAndCreateCalendar() {
+async function fetchMarkdown(source) {
+	const response = await fetch(source);
+	if (!response.ok) {
+		throw new Error(`Erreur lors de la récupération du fichier : ${source}`);
+	}
+	return await response.text();
+}
+
+export async function getMarkdownContentAndCreateCalendar() {
 	// On récupère l'URL du hashtag sans le #
 	const url = window.location.hash.substring(1).replace(/\?.*/, "");
 	// On traite l'URL pour pouvoir récupérer correctement la source
-	const source = handleURL(url);
-	if (source !== "") {
-		fetch(source)
-			.then((response) => response.text())
-			.then((data) => {
-				md = data;
-				calendarData = parseMarkdown(md);
-				createCalendar(calendarData);
-			})
-			.catch((error) => console.error(error));
-	} else {
+	let source = handleURL(url, { useCorsProxy: false });
+
+	if (source === "") {
 		calendarData = parseMarkdown(md);
 		createCalendar(calendarData, startDay);
+		return;
+	}
+
+	try {
+		// Tentative 1 : récupération directe
+		md = await fetchMarkdown(source);
+		calendarData = parseMarkdown(md);
+		createCalendar(calendarData);
+	} catch (error) {
+		console.error(error);
+
+		try {
+			// Tentative 2 : ajout de l'extension .md
+			source = handleURL(url + ".md", { useCorsProxy: false });
+			md = await fetchMarkdown(source);
+			calendarData = parseMarkdown(md);
+			createCalendar(calendarData);
+		} catch (error) {
+			console.error(error);
+
+			try {
+				// Tentative 3 : utilisation du proxy CORS
+				source = handleURL(url, { useCorsProxy: true });
+				md = await fetchMarkdown(source);
+				calendarData = parseMarkdown(md);
+				createCalendar(calendarData);
+			} catch (error) {
+				console.error(error);
+				console.log("Impossible de récupérer le fichier markdown");
+			}
+		}
 	}
 }

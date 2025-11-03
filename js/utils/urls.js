@@ -7,11 +7,11 @@ function decryptURL(url) {
 	}
 	return url;
 }
-
-export function handleURL(url) {
-	url = decryptURL(url);
+// Pour gérer l'URL de la source en Markdown
+export function handleURL(url, options) {
 	if (url !== "") {
-		let addCorsProxy = true;
+		url = decryptURL(url);
+		let addCorsProxy = options && options.useCorsProxy ? true : false;
 		// Vérification de la présence d'un raccourci
 		const shortcut = shortcuts.find((element) => element[0] == url);
 		if (shortcut) {
@@ -32,7 +32,7 @@ export function handleURL(url) {
 			);
 			url = url.replace("/blob/", "/");
 		}
-		// gestion des fichiers hébergés sur codiMD / le pad gouv / hedgedoc / digipage
+		// gestion des fichiers hébergés sur codiMD / hedgedoc / digipage
 		if (
 			url.startsWith("https://codimd") ||
 			url.startsWith("https://pad.numerique.gouv.fr/") ||
