@@ -2,7 +2,7 @@ body {
 	background: linear-gradient(to bottom, #0d1b2a, #1e3c72, #2a5298, #3867b9);
 	max-width: 1700px;
 	margin: auto;
-	background: url("/img/background.jpg");
+	background: url("../img/background.jpg");
 	background-size: cover;
 	word-wrap: break-word;
 }
