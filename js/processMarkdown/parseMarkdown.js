@@ -21,21 +21,16 @@ export function parseMarkdown(markdownContent) {
 	// Contenu principal après le titre
 	const mainContent = markdownContent.substring(titleEndIndex);
 	let calendarData = [];
-	let initialMessageContent = [];
 	let calendarMarkdown = [];
 
 	// Extraction du Message Initial
 	const initialMessageEndIndex = mainContent.indexOf("\n## ");
 	const initialMessageStartIndex =
 		mainContent.indexOf("---", 3) > -1 ? mainContent.indexOf("---", 3) + 3 : 0;
-	const initialMessageBlock = mainContent.substring(
+	const initialMessageContent = mainContent.substring(
 		initialMessageStartIndex,
 		initialMessageEndIndex,
 	);
-	initialMessageContent = initialMessageBlock
-		.split("\n")
-		.map((line) => line.trim())
-		.filter((line) => line.length > 0);
 
 	// Extraction des éléments du Calendrier
 	const days = mainContent.split("\n## ").slice(1);
@@ -87,7 +82,7 @@ export function parseMarkdown(markdownContent) {
 
 	calendarData = [
 		calendarTitle,
-		markdownToHTML(initialMessageContent.join("\n")),
+		markdownToHTML(initialMessageContent),
 		calendarMarkdown.join("\n"),
 	];
 	return calendarData;
