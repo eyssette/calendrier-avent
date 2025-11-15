@@ -4,37 +4,40 @@ import { shuffleArray } from "../utils/arrays";
 
 export function parseMarkdown(markdownContent) {
 	processYAML(markdownContent);
-	const indexFirstH1title = markdownContent.indexOf("# ");
-	const mainContent = markdownContent.substring(indexFirstH1title);
+
+	// Extraction du Titre
+	const titleRegex = /^# (.+$)/m;
+	const titleMatch = markdownContent.match(titleRegex);
+	const titleStartIndex = titleMatch
+		? markdownContent.indexOf(titleMatch[0])
+		: -1;
+	const titleEndIndex = titleMatch
+		? titleStartIndex + titleMatch[0].length
+		: -1;
+	let calendarTitle = titleMatch
+		? titleMatch[1].trim()
+		: "Mon calendrier de l'Avent";
+
+	// Contenu principal après le titre
+	const mainContent = markdownContent.substring(titleEndIndex);
 	let calendarData = [];
-	let calendarTitle = "Mon calendrier de l'Avent";
 	let initialMessageContent = [];
 	let calendarMarkdown = [];
 
-	// Extraction du Titre
-	const titleStartIndex = mainContent.indexOf("# ");
-	if (titleStartIndex !== -1) {
-		const titleEndIndex = mainContent.indexOf("\n", titleStartIndex);
-		calendarTitle = mainContent
-			.substring(titleStartIndex + 2, titleEndIndex)
-			.trim();
-	}
-
 	// Extraction du Message Initial
-	const messageStartIndex = mainContent.indexOf("> ");
-	if (messageStartIndex !== -1) {
-		const daysStartIndex = mainContent.indexOf("\n## ", messageStartIndex);
-		const messageBlock = mainContent.substring(
-			messageStartIndex,
-			daysStartIndex === -1 ? undefined : daysStartIndex,
-		);
-		initialMessageContent = messageBlock
-			.split("\n")
-			.filter((line) => line.startsWith(">"))
-			.map((line) => line.replace(/^>\s?/, "").trim());
-	}
+	const initialMessageEndIndex = mainContent.indexOf("\n## ");
+	const initialMessageStartIndex =
+		mainContent.indexOf("---", 3) > -1 ? mainContent.indexOf("---", 3) + 3 : 0;
+	const initialMessageBlock = mainContent.substring(
+		initialMessageStartIndex,
+		initialMessageEndIndex,
+	);
+	initialMessageContent = initialMessageBlock
+		.split("\n")
+		.map((line) => line.trim())
+		.filter((line) => line.length > 0);
 
-	// Extraction des Éléments du Calendrier
+	// Extraction des éléments du Calendrier
 	const days = mainContent.split("\n## ").slice(1);
 	let day = 1;
 
