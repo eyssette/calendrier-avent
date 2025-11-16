@@ -140,6 +140,7 @@ section.dayContent {
 	left: 0;
 	right: 0;
 	margin: 5% auto;
+	cursor: auto;
 }
 
 section.day.active .dayContent {
