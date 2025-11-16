@@ -7,7 +7,7 @@ Message initial
 
 ![](https://picsum.photos/200?random=1)
 
-Contenu jour 1
+On met pour chaque jour une image au tout début : elle s'affichera dans la case du calendrier quand ce sera le jour J (ou un jour passé).
 
 ## 2
 
