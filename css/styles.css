@@ -182,55 +182,105 @@ footer a {
 }
 
 .admonition {
+	--info-icon: "📝";
+	--info-color-border: #0063cb;
+	--info-color-bg: rgb(1 125 255 / 25%);
+	--info-color-title: #cae3ff;
+	--success-icon: "🌱";
+	--success-color-border: #18753c;
+	--success-color-bg: rgb(0 200 83 / 25%);
+	--success-color-title: #c3f8d3;
+	--warning-icon: "❗";
+	--warning-color-border: #d93025;
+	--warning-color-bg: rgb(255 0 0 / 25%);
+	--warning-color-title: #ffc8c8;
+	margin: 1.5em 0em;
+	padding: 0.75em 1em;
+	border: 1px solid var(--color-light);
+	border-left-width: 3px;
+	border-radius: 0.25em;
+	box-shadow: 0 3px 6px rgba(0, 0, 0, 0.1);
+	background-color: var(--color-ultra-light);
+	font-size: 0.9em;
+}
+
+@media screen and (min-width: 500px) {
+	.admonition {
+		margin-left: 1em;
+		font-size: 0.95em;
+	}
+}
+
+.admonitionTitle {
+	font-weight: bold;
+	letter-spacing: 0.02em;
+}
+
+.admonitionContent {
 	margin-top: 1em;
-	border-radius: 5px;
-	padding: 0.5em 1em;
-	background-color: #eee;
+}
+
+.admonitionTitle:before {
+	font-weight: 300;
+	margin-right: 0.75em;
+	font-size: 1.15em;
+}
+
+.admonitionTitle:empty {
+	display: none;
+}
+
+.info .admonitionTitle:before,
+.note .admonitionTitle:before,
+.spoiler .admonitionTitle:before {
+	content: var(--info-icon);
+}
+.warning .admonitionTitle:before,
+.danger .admonitionTitle:before,
+.bug .admonitionTitle:before {
+	content: var(--warning-icon);
+}
+
+.tip .admonitionTitle:before,
+.success .admonitionTitle:before {
+	content: var(--success-icon);
 }
 
 .admonition.info,
 .admonition.note,
 .admonition.spoiler {
-	background-color: rgb(194, 225, 235);
+	border-color: var(--info-color-border);
+	background: var(--info-color-bg);
 }
-.admonition.tip,
-.admonition.success {
-	background-color: rgb(207 235 194);
+
+.admonition.info .admonitionTitle,
+.admonition.note .admonitionTitle,
+.admonition.spoiler .admonitionTitle {
+	color: var(--info-color-title);
 }
-.admonition.warning,
+
+.admonition.success,
+.admonition.tip {
+	border-color: var(--success-color-border);
+	background: var(--success-color-bg);
+}
+
+.admonition.success .admonitionTitle,
+.admonition.tip .admonitionTitle {
+	color: var(--success-color-title);
+}
+
+.admonition.bug,
 .admonition.danger,
-.admonition.bug {
-	background-color: rgb(241 200 200);
+.admonition.warning {
+	border-color: var(--warning-color-border);
+	background: var(--warning-color-bg);
 }
 
-.admonitionContent {
-	font-size: 0.95em;
-}
-
-.admonitionTitle {
-	font-weight: bold;
-	font-size: 0.9em;
-}
-
-.admonitionTitle:before {
-	font-weight: 300;
-	margin-right: 0.5em;
-	font-size: 1.15em;
-}
-.info .admonitionTitle,
-.note .admonitionTitle,
-.spoiler .admonitionTitle {
-	color: #0b0258;
-}
-
-.tip .admonitionTitle,
-.success .admonitionTitle {
-	color: #012e14;
-}
-.warning .admonitionTitle,
-.danger .admonitionTitle,
-.bug .admonitionTitle {
-	color: #470302;
+.admonition.bug .admonitionTitle,
+.admonition.danger .admonitionTitle,
+.admonition.warning .admonitionTitle {
+	color: var(--warning-color-title);
 }
 
 iframe {
