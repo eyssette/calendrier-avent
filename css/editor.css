@@ -52,6 +52,11 @@ body.editMode .help-modal-close {
 	cursor: pointer;
 }
 
+body.editMode .help-modal-message {
+	max-height: 80vh;
+	overflow-y: scroll;
+}
+
 body.editMode .editor {
 	padding-top: 40px;
 	width: 100%;

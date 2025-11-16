@@ -11,6 +11,43 @@ export function createHelpButton(editorWrapper) {
 		const helpMessage =
 			helpTitle +
 			markdownToHTML(`
+### Rappel de la syntaxe de base
+
+
+On fait des cases en suivant l'un des modèles ci-dessous.
+
+\`\`\`
+## 1
+
+![](https://picsum.photos/200?random=1)
+
+Exemple :
+- image au début (qui s'affiche dans la case quand le jour est visible)
+- titre simple = numéro de la case
+
+## Titre case
+
+Exemple :
+- pas d'image au début
+- titre personnalisé
+
+## Titre case
+
+![](https://picsum.photos/200?random=2)
+
+Exemple : 
+- image au début
+- titre personnalisé
+
+## 4
+
+Exemple :
+- pas d'image au début
+- pas de titre personnalisé
+\`\`\`
+
+### Options avancées
+
 Vous pouvez ajouter un en-tête YAML, avec différentes options ([voir un modèle avec toutes ces options](https://codimd.apps.education.fr/-PbI3GizQo6xV-TEiU1-sA?both))
 
 - \`maths: true\` pour activer l'écriture mathématique en Latex.
@@ -34,7 +71,9 @@ Si vous souhaitez cacher l'URL de votre fichier, vous pouvez [encoder l'URL en b
 		modal.innerHTML = `
 			<div class="help-modal-content">
 				<span class="help-modal-close">&times;</span>
+				<div class="help-modal-message">
 				${helpMessage}
+				</div>
 			</div>
 		`;
 		document.body.appendChild(modal);
