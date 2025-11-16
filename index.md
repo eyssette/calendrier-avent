@@ -18,6 +18,12 @@ Vous pouvez ajouter un en-tête YAML, avec différentes options ([voir un modèl
 - `displayFrom: dd/mm/aaaa` : date à partir de laquelle le calendrier commence à compter les jours (si on veut les afficher un autre mois qu'en décembre).
 - `style:` pour personnaliser l'apparence en CSS
 
+Par défaut, l'application choisit l'image des cases cachées. Pour utiliser vos propres images, ajoutez simplement une image avant celle qui s'affiche quand le jour est visible :
+
+```
+![](URL_image_case_cachée) ![](URL_image_case_visible)
+```
+
 Si vous souhaitez cacher l'URL de votre fichier, vous pouvez [encoder l'URL en base64](https://www.base64encode.org/), et utiliser le paramètre `?c=1` : `https://calendrier-avent.forge.apps.education.fr/?c=1#ENCODED_URL`
 :::
 
