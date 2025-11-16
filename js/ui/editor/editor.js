@@ -1,5 +1,6 @@
 import { createEditor } from "./dom/createEditor.js";
 import { createCloseButton } from "./dom/createCloseButton.js";
+import { createHelpButton } from "./dom/createHelpButton.js";
 import { initJar } from "./helpers/initCodeJar.js";
 import { initKeyboardEvents } from "./events/keyboard.js";
 import { getDefaultMD } from "./helpers/defaultMD.js";
@@ -15,6 +16,7 @@ export function initMarkdownEditor(md = "") {
 		const jar = initJar(editor, md ? md : defaultMD);
 		createCloseButton(editorWrapper, jar);
 		createCopyContentButton(editorWrapper, editor);
+		createHelpButton(editorWrapper);
 		initKeyboardEvents();
 		eventCloseWindow(true);
 	}, 100);
