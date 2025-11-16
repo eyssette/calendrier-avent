@@ -1,4 +1,5 @@
 import { yaml } from "../processMarkdown/yaml";
+import { dayImages } from "../config.js";
 
 function shouldDisplayDay(
 	id,
@@ -92,7 +93,7 @@ export function handleCalendar(startDay) {
 	currentDay = startDay ? startDay : currentDay;
 
 	daySections.forEach((daySection) => {
-		const images = daySection.querySelector("h2+p");
+		const images = daySection.querySelector(".dayImages");
 		const dayContent = daySection.querySelector(".dayContent");
 
 		// Parcourir chaque élément et ajouter la classe "pastDate" si nécessaire
@@ -116,11 +117,20 @@ export function handleCalendar(startDay) {
 					? "currentDate"
 					: "pastDate";
 			daySection.classList.add(classToAdd);
-			if ((images.children.length == 2 && id < currentDay) || reveal) {
+			// S'il y a deux images et que c'est un jour passé (ou qu'il faut révéler tout le contenu), on supprime la première image
+			if (images.children.length == 2 && (id < currentDay || reveal)) {
 				images.children[0].remove();
 			}
 		} else {
 			daySection.classList.add("futureDate");
+			// s'il n'y a qu'une image et que c'est une date à ne pas afficher encore, on ajoute une image par défaut pour la case
+			if (images.children.length == 1) {
+				const firstImageSrc = dayImages[(id - 1) % dayImages.length];
+				const newImage = document.createElement("img");
+				newImage.src = firstImageSrc;
+				// On met l'image avant l'image existante
+				images.insertBefore(newImage, images.firstChild);
+			}
 		}
 
 		const closeButton = daySection.querySelector(".closeButton");

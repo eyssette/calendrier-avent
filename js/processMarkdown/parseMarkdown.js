@@ -67,8 +67,12 @@ export function parseMarkdown(markdownContent) {
 					? imageAndAfter.substring(nextLineBreak + 1).trim()
 					: "";
 			// Ajout de la structure HTML autour de la première image
+			const dayImagesHTML = markdownToHTML(imageLine).replace(
+				/^<p>/,
+				'<p class="dayImages">',
+			);
 			dayContent =
-				`${markdownToHTML(imageLine)}<section markdown class="dayContent"><p><button class="closeButton">X</button></p><section markdown class="content">` +
+				`${dayImagesHTML}<section markdown class="dayContent"><p><button class="closeButton">X</button></p><section markdown class="content">` +
 				markdownToHTML(afterImage);
 		}
 		const dayHtmlEnd = "</section></section></section>";
