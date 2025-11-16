@@ -9,7 +9,6 @@ function shouldDisplayDay(
 ) {
 	let shouldDisplay = false;
 	if (displayFrom) {
-		console.log(displayFrom.gapDays);
 		shouldDisplay =
 			currentMonth == displayFrom.month &&
 			currentDay >= displayFrom.day + (id - 1) * (displayFrom.gapDays + 1);
@@ -90,6 +89,7 @@ export function handleCalendar(startDay) {
 			daySection.classList.remove("active");
 		});
 	}
+	currentDay = startDay ? startDay : currentDay;
 
 	daySections.forEach((daySection) => {
 		const images = daySection.querySelector("h2+p");
@@ -99,7 +99,7 @@ export function handleCalendar(startDay) {
 		// Extraire l'ID du jour à partir de l'attribut "id"
 		const id = parseInt(daySection.id.split("-")[1], 10);
 		// On affiche le contenu seulement si on est au mois de décembre et si le jour du contenu est égal ou inférieur au jour actuel
-		currentDay = startDay ? startDay : currentDay;
+
 		const displayFromMonth = startDay ? currentMonth : 12;
 		if (
 			shouldDisplayDay(

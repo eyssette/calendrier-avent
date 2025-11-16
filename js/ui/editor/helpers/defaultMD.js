@@ -1,14 +1,11 @@
-# Mon calendrier de l'Avent
+export function getDefaultMD() {
+	return `---
+reveal: true
+---
 
-Ce site vous permet de créer un calendrier de l'Avent personnalisé
+# Titre
 
-1. Créez un fichier sur CodiMD ou sur une forge. Vous pouvez également tester l'éditeur en ligne : <button class="openEditor">ouvrir l'éditeur</button>. Dans ce cas, il faudra bien penser à sauvegarder à la fin le contenu de l'éditeur dans un fichier CodiMD.
-2. Utilisez le [modèle simple](https://codimd.apps.education.fr/e3SID0AXRjitNnQD660FHA?both) ou bien le [modèle avec options plus avancées](https://codimd.apps.education.fr/-PbI3GizQo6xV-TEiU1-sA?both) pour créer votre calendrier
-3. Votre calendrier de l'avent sera alors disponible à l'adresse : `https://calendrier-avent.forge.apps.education.fr/#URL` (en remplaçant URL par l'URL de votre fichier).
-4. Il est possible de cacher l'URL de votre fichier avec le paramètre `?c=1` : `https://calendrier-avent.forge.apps.education.fr/?c=1#URL` (l'URL doit être encodée avec base64)
-
-Pour montrer ci-dessous comment le site fonctionne, les 4 premiers jours sont visibles et le reste est caché.
-Si vous créez votre propre calendrier, les cases s'affichent automatiquement jour après jour en décembre.
+Message initial
 
 ## 1
 
@@ -195,3 +192,6 @@ Contenu jour 30
 ![](img/secretlondon_chocolate_present.png) ![](https://picsum.photos/200?random=28)
 
 Contenu jour 31
+
+`;
+}

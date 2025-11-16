@@ -1,6 +1,8 @@
 import { handleCalendar } from "./handleCalendar";
 import { yaml } from "../processMarkdown/yaml";
 import { convertLatexExpressions } from "../processMarkdown/convertLatex";
+import { initEditorButtonEvents } from "./editor/eventClickEditorButton";
+import { getParamsFromUrl } from "../utils/urls";
 
 export function createCalendar(data, startDay) {
 	const titleElement = document.getElementById("title");
@@ -30,5 +32,8 @@ export function createCalendar(data, startDay) {
 	} else {
 		mainElement.innerHTML = calendar;
 		handleCalendar(startDay);
+		// On affiche l'éditeur (seulement dans la page par défaut, dans laquelle on n'a pas de paramètre maths dans le YAML)
+		const params = getParamsFromUrl(window.location.search);
+		initEditorButtonEvents(params);
 	}
 }

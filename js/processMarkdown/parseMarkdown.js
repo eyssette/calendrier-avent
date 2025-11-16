@@ -38,16 +38,21 @@ export function parseMarkdown(markdownContent) {
 
 	for (let dayBlock of days) {
 		// Extraction des informations du jour
-		const titleEndIndex = dayBlock.indexOf("\n");
-		let titleH2 = dayBlock.substring(0, titleEndIndex).trim();
-		titleH2 = titleH2 == day ? "" : titleH2;
+		dayBlock = dayBlock.trim();
+		// Extraction du titre du jour (qui correspond à la première ligne)
+		const dayLineEndIndex = dayBlock.indexOf("\n");
+		const dayTitle = dayBlock.substring(0, dayLineEndIndex).trim();
+		const daytTitleHTML = markdownToHTML(dayTitle)
+			.replaceAll("<p>", "")
+			.replaceAll("</p>", "");
+		const hasTitle = parseInt(dayTitle) ? false : true;
 
 		// Génération de la structure HTML pour le jour
-		const hasTitle = titleH2 ? "hasTitle" : "";
-		const dayHtmlStart = `<section markdown class="day ${hasTitle}" id="day-${day}"><h2>${day}<span>${markdownToHTML(titleH2)}</span></h2>`;
+		const cssHasTitle = hasTitle ? "hasTitle" : "";
+		const dayHtmlStart = `<section markdown class="day ${cssHasTitle}" id="day-${day}"><h2>${daytTitleHTML}</h2>`;
 
 		// Extraction du contenu
-		let dayContent = dayBlock.substring(titleEndIndex + 1).trim();
+		let dayContent = dayBlock.substring(dayLineEndIndex + 1).trim();
 		const firstImageIndex = dayContent.indexOf("![");
 		if (firstImageIndex !== -1) {
 			// Ligne contenant l'image et le reste du contenu après

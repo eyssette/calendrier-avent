@@ -92,3 +92,12 @@ export function loadCSS(src, name) {
 		});
 	}
 }
+
+export function getParamsFromUrl(URL) {
+	const urlSearchParams = new URLSearchParams(URL.split("?")[1]);
+	const paramsObject = {};
+	urlSearchParams.forEach(function (value, key) {
+		paramsObject[key] = value;
+	});
+	return paramsObject;
+}
