@@ -137,14 +137,17 @@ export function handleCalendar(startDay) {
 			}
 		} else {
 			daySection.classList.add("futureDate");
-			// s'il n'y a qu'une image et que c'est une date à ne pas afficher encore, on ajoute une image par défaut pour la case
-			if (images.children.length == 1) {
+			// s'il n'y a pas d'image ou bien qu'une seule image et que c'est une date à ne pas afficher encore, on ajoute une image par défaut pour la case
+			if (images && images.children.length < 2) {
 				const firstImageSrc = dayImages[(id - 1) % dayImages.length];
 				const newImage = document.createElement("img");
 				newImage.src = firstImageSrc;
 				newImage.alt = "";
-				// On met l'image avant l'image existante
-				images.insertBefore(newImage, images.firstChild);
+				if (images.children.length == 1) {
+					images.insertBefore(newImage, images.firstChild);
+				} else {
+					images.replaceChildren(newImage);
+				}
 			}
 		}
 

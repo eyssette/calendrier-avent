@@ -60,8 +60,29 @@ section.day {
 	height: 75px;
 	object-fit: contain;
 }
-.day.hasTitle.pastDate img {
+.day.hasCustomTitle.pastDate img {
 	height: 50px;
+}
+.pastDate.noCustomImage .dayImages,
+.currentDate.noCustomImage .dayImages {
+	font-size: 1.75em;
+}
+@media screen and (max-width: 500px) {
+	.pastDate.noCustomImage .dayImages,
+	.currentDate.noCustomImage .dayImages {
+		font-size: 2.5em;
+	}
+}
+
+.pastDate.noCustomImage.hasCustomTitle .dayImages,
+.currentDate.noCustomImage.hasCustomTitle .dayImages {
+	display: none;
+}
+
+.pastDate.noCustomImage.hasCustomTitle h2 span,
+.currentDate.noCustomImage.hasCustomTitle h2 span {
+	font-size: 1em !important;
+	word-wrap: normal;
 }
 
 .dayContent img {
@@ -87,7 +108,7 @@ h2 + p img:nth-of-type(2) {
 .currentDate h2 span {
 	display: none;
 }
-.hasTitle.pastDate h2 span {
+.hasCustomTitle.pastDate h2 span {
 	display: block;
 	font-size: 0.5em !important;
 	height: 20px;
@@ -104,6 +125,10 @@ section.day:not(.active):hover {
 
 section.day.active {
 	background-color: #444;
+}
+
+section.day > p {
+	color: white;
 }
 
 section.pastDate {
@@ -326,11 +351,11 @@ iframe {
 		height: 120px !important;
 		object-fit: contain;
 	}
-	.day.hasTitle.pastDate img {
+	.day.hasCustomTitle.pastDate img {
 		height: 90px !important;
 		width: 100px !important;
 	}
-	.day.hasTitle.pastDate .dayContent img,
+	.day.hasCustomTitle.pastDate .dayContent img,
 	.dayContent img {
 		width: initial !important;
 		height: initial !important;

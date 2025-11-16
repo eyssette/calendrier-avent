@@ -40,44 +40,41 @@ export function parseMarkdown(markdownContent) {
 		// Extraction des informations du jour
 		dayBlock = dayBlock.trim();
 		// Extraction du titre du jour (qui correspond à la première ligne)
-		const dayLineEndIndex = dayBlock.indexOf("\n");
-		const dayTitle = dayBlock.substring(0, dayLineEndIndex).trim();
-		const hasTitle = parseInt(dayTitle) ? false : true;
-		const dayTitleHTML = hasTitle
-			? day +
-				"<span>" +
-				markdownToHTML(dayTitle).replaceAll("<p>", "").replaceAll("</p>", "") +
-				"</span>"
+		const dayTitleEndIndex = dayBlock.indexOf("\n");
+		const dayTitle = dayBlock.substring(0, dayTitleEndIndex).trim();
+		const hasCustomTitle = parseInt(dayTitle) ? false : true;
+		const dayTitleInlineHTML = markdownToHTML(dayTitle)
+			.replaceAll("<p>", "")
+			.replaceAll("</p>", "");
+		const dayTitleHTML = hasCustomTitle
+			? day + "<span>" + dayTitleInlineHTML + "</span>"
 			: dayTitle;
 
-		// Génération de la structure HTML pour le jour
-		const cssHasTitle = hasTitle ? "hasTitle" : "";
-		const dayHtmlStart = `<section markdown class="day ${cssHasTitle}" id="day-${day}"><h2>${dayTitleHTML}</h2>`;
-
 		// Extraction du contenu
-		let dayContent = dayBlock.substring(dayLineEndIndex + 1).trim();
-		const firstImageIndex = dayContent.indexOf("![");
-		if (firstImageIndex !== -1) {
+		let dayContent = dayBlock.substring(dayTitleEndIndex + 1).trim();
+		// On vérifie si une image est présente au début du contenu
+		const firstLine = dayContent.split("\n")[0];
+		const isFirstLineImage = /^!\[/.test(firstLine);
+		if (isFirstLineImage) {
 			// Ligne contenant l'image et le reste du contenu après
-			const imageAndAfter = dayContent.substring(firstImageIndex);
-			const nextLineBreak = imageAndAfter.indexOf("\n");
-			const imageLine =
-				nextLineBreak !== -1
-					? imageAndAfter.substring(0, nextLineBreak).trim()
-					: imageAndAfter.trim();
-			const afterImage =
-				nextLineBreak !== -1
-					? imageAndAfter.substring(nextLineBreak + 1).trim()
-					: "";
+			const afterImage = dayContent.substring(firstLine.length).trim();
 			// Ajout de la structure HTML autour de la première image
-			const dayImagesHTML = markdownToHTML(imageLine).replace(
+			const dayImagesHTML = markdownToHTML(firstLine).replace(
 				/^<p>/,
 				'<p class="dayImages">',
 			);
 			dayContent =
 				`${dayImagesHTML}<section markdown class="dayContent"><p><button class="closeButton">X</button></p><section markdown class="content">` +
 				markdownToHTML(afterImage);
+		} else {
+			dayContent =
+				'<p class="dayImages">👆</p><section markdown class="dayContent"><p><button class="closeButton">X</button></p><section markdown class="content">' +
+				markdownToHTML(dayContent);
 		}
+		// Génération de la structure HTML pour le jour
+		const cssHasCustomTitle = hasCustomTitle ? "hasCustomTitle" : "";
+		const cssHasNoCustomImage = isFirstLineImage ? "" : "noCustomImage";
+		const dayHtmlStart = `<section markdown class="day ${cssHasCustomTitle} ${cssHasNoCustomImage}" id="day-${day}"><h2>${dayTitleHTML}</h2>`;
 		const dayHtmlEnd = "</section></section></section>";
 		const fullDayHtml = `${dayHtmlStart}${dayContent}${dayHtmlEnd}`;
 		calendarMarkdown.push(fullDayHtml);
