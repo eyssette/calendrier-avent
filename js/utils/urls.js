@@ -93,6 +93,7 @@ export function loadCSS(src, name) {
 	}
 }
 
+// Récupération des paramètres dans l'URL
 export function getParamsFromUrl(URL) {
 	const urlSearchParams = new URLSearchParams(URL.split("?")[1]);
 	const paramsObject = {};
@@ -100,4 +101,18 @@ export function getParamsFromUrl(URL) {
 		paramsObject[key] = value;
 	});
 	return paramsObject;
+}
+
+// Redirection vers une URL avec un hash
+export function redirectToUrl(input, baseURL = window.location.origin) {
+	const hash = input.value.trim();
+	baseURL = input.getAttribute("data-base-url")
+		? "https://" + input.getAttribute("data-base-url")
+		: baseURL;
+	if (hash) {
+		const fullUrl = baseURL + `#${hash}`;
+		window.open(fullUrl, "_blank");
+	} else {
+		alert("Veuillez entrer une URL valide.");
+	}
 }

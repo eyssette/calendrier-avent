@@ -27,6 +27,11 @@ header {
 	font-size: 1.25em;
 }
 
+#initial-message ul,
+#initial-message ol {
+	line-height: 1.5em;
+}
+
 #initial-message a {
 	color: white;
 }
@@ -196,12 +201,11 @@ footer a {
 	--warning-color-title: #ffc8c8;
 	margin: 1.5em 0em;
 	padding: 0.75em 1em;
-	border: 1px solid var(--color-light);
-	border-left-width: 3px;
 	border-radius: 0.25em;
 	box-shadow: 0 3px 6px rgba(0, 0, 0, 0.1);
-	background-color: var(--color-ultra-light);
+	background-color: rgba(85, 85, 85, 0.25);
 	font-size: 0.9em;
+	backdrop-filter: brightness(0.5);
 }
 
 @media screen and (min-width: 500px) {

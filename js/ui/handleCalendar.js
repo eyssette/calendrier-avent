@@ -1,6 +1,6 @@
 import { yaml } from "../processMarkdown/yaml";
 import { dayImages } from "../config.js";
-import { getParamsFromUrl } from "../utils/urls.js";
+import { getParamsFromUrl, redirectToUrl } from "../utils/urls.js";
 
 function shouldDisplayDay(
 	id,
@@ -161,7 +161,11 @@ export function handleCalendar(startDay) {
 		});
 
 		// Masquer dayContent lors du clic en dehors ou appui sur "Esc"
-		document.addEventListener("click", function () {
+		document.addEventListener("click", function (e) {
+			if (e.target.matches(".redirect-button")) {
+				const input = document.querySelector(`#${e.target.dataset.inputId}`);
+				if (input) redirectToUrl(input);
+			}
 			dayContentHide();
 		});
 

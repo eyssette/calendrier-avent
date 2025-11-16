@@ -1,14 +1,27 @@
 # Mon calendrier de l'Avent
 
-Ce site vous permet de créer un calendrier de l'Avent personnalisé
+:::howto Comment créer votre calendrier de l'Avent ?
 
-1. Créez un fichier sur CodiMD ou sur une forge. Vous pouvez également tester l'éditeur en ligne : <button class="openEditor">ouvrir l'éditeur</button>. Dans ce cas, il faudra bien penser à sauvegarder à la fin le contenu de l'éditeur dans un fichier CodiMD.
-2. Utilisez le [modèle simple](https://codimd.apps.education.fr/e3SID0AXRjitNnQD660FHA?both) ou bien le [modèle avec options plus avancées](https://codimd.apps.education.fr/-PbI3GizQo6xV-TEiU1-sA?both) pour créer votre calendrier
-3. Votre calendrier de l'avent sera alors disponible à l'adresse : `https://calendrier-avent.forge.apps.education.fr/#URL` (en remplaçant URL par l'URL de votre fichier).
-4. Il est possible de cacher l'URL de votre fichier avec le paramètre `?c=1` : `https://calendrier-avent.forge.apps.education.fr/?c=1#URL` (l'URL doit être encodée avec base64)
+1. Ouvrez l'éditeur en ligne : <button class="openEditor">ouvrir l'éditeur</button>.
+2. Une fois votre calendrier terminé, copiez le contenu dans un fichier sur [CodiMD](https://codimd.apps.education.fr/) ou un service identique.
+3. <label for="redirect">Copiez ici le lien vers votre fichier :</label> <input type="url" id="redirect" class="redirect-input" placeholder="Votre URL"> <button  class="redirect-button" data-input-id="redirect" >OK</button>
+   :::
 
-Pour montrer ci-dessous comment le site fonctionne, les 4 premiers jours sont visibles et le reste est caché.
-Si vous créez votre propre calendrier, les cases s'affichent automatiquement jour après jour en décembre.
+:::info collapsible Voir les option plus avancées
+Vous pouvez ajouter un en-tête YAML, avec différentes options ([voir un modèle avec toutes ces options](https://codimd.apps.education.fr/-PbI3GizQo6xV-TEiU1-sA?both))
+
+- `maths: true` pour activer l'écriture mathématique en Latex.
+- `random: true` pour afficher les jours de manière aléatoire.
+- `bouncingEffet: false` pour désactiver l'effet de rebondissement du jour actuel.
+- `reveal: true` pour que le contenu de chaque case soit visible.
+- `revealAfter: dd/mm/aaaa` : date à partir de laquelle tout reste visible.
+- `displayFrom: dd/mm/aaaa` : date à partir de laquelle le calendrier commence à compter les jours (si on veut les afficher un autre mois qu'en décembre).
+- `style:` pour personnaliser l'apparence en CSS
+
+Si vous souhaitez cacher l'URL de votre fichier, vous pouvez [encoder l'URL en base64](https://www.base64encode.org/), et utiliser le paramètre `?c=1` : `https://calendrier-avent.forge.apps.education.fr/?c=1#ENCODED_URL`
+:::
+
+Pour la démonstration ci-dessous, les 4 premiers jours sont visibles. Dans votre calendrier, les cases apparaîtront automatiquement chaque jour de décembre.
 
 ## 1
 
