@@ -142,6 +142,7 @@ export function handleCalendar(startDay) {
 				const firstImageSrc = dayImages[(id - 1) % dayImages.length];
 				const newImage = document.createElement("img");
 				newImage.src = firstImageSrc;
+				newImage.alt = "";
 				// On met l'image avant l'image existante
 				images.insertBefore(newImage, images.firstChild);
 			}

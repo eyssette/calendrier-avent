@@ -133,5 +133,12 @@ export function markdownToHTML(text) {
 	let html = converter.makeHtml(text);
 	// Optimisation de l'affichage des images
 	html = html.replaceAll("<img ", '<img loading="lazy" ');
+	// S'il n'y a pas d'attribut alt sur une image, on ajoute un alt vide pour l'accessibilité
+	html = html.replaceAll(/<img ([^>]*?)>/g, (match, p1) => {
+		if (!/alt=/.test(p1)) {
+			return `<img ${p1} alt="">`;
+		}
+		return match;
+	});
 	return html;
 }
