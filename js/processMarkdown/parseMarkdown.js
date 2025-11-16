@@ -65,10 +65,12 @@ export function parseMarkdown(markdownContent) {
 			);
 			dayContent =
 				`${dayImagesHTML}<section markdown class="dayContent"><p><button class="closeButton">X</button></p><section markdown class="content">` +
+				`<h2>${dayTitleInlineHTML}</h2>` +
 				markdownToHTML(afterImage);
 		} else {
 			dayContent =
 				'<p class="dayImages">👆</p><section markdown class="dayContent"><p><button class="closeButton">X</button></p><section markdown class="content">' +
+				`<h2>${dayTitleInlineHTML}</h2>` +
 				markdownToHTML(dayContent);
 		}
 		// Génération de la structure HTML pour le jour
