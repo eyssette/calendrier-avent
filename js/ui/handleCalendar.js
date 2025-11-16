@@ -53,12 +53,16 @@ export function handleCalendar(startDay) {
 		userPrefersReducedMotion;
 	showBouncingEffect = !hideBouncingEffet;
 	const switchSnowElement = document.body.querySelector("#snow-toggle");
-	switchSnowElement.addEventListener("click", () => {
+	function switchSnowHandler() {
 		snowContainer.style.display =
 			snowContainer.style.display == "none" ? "block" : "none";
 		showBouncingEffect = !showBouncingEffect;
 		dayContentHide();
-	});
+	}
+	if (switchSnowElement.dataset.eventAdded !== "true") {
+		switchSnowElement.addEventListener("click", switchSnowHandler);
+		switchSnowElement.dataset.eventAdded = "true";
+	}
 	const contentNotAvalaible =
 		"Ce n'est pas encore le bon jour, merci de patienter !";
 
