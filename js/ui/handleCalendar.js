@@ -52,7 +52,7 @@ export function handleCalendar(startDay) {
 		reveal == true ||
 		userPrefersReducedMotion;
 	showBouncingEffect = !hideBouncingEffet;
-	const switchSnowElement = document.body.querySelector("input");
+	const switchSnowElement = document.body.querySelector("#snow-toggle");
 	switchSnowElement.addEventListener("click", () => {
 		snowContainer.style.display =
 			snowContainer.style.display == "none" ? "block" : "none";
