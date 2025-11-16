@@ -92,8 +92,9 @@ Si vous souhaitez cacher l'URL de votre fichier, vous pouvez [encoder l'URL en b
 
 				// Si clic en dehors du contenu de la modale
 				const clickedInsideModal = target.closest(".help-modal-content");
+				const clickInsideEditor = target.closest(".editor");
 
-				if (!clickedInsideModal) {
+				if (!clickedInsideModal && !clickInsideEditor) {
 					modal.remove();
 					document.removeEventListener("click", eventHandler);
 				}
