@@ -33,6 +33,8 @@ export function processYAML(markdownContent) {
 		} catch (e) {
 			console.log("erreur processYAML : " + e);
 		}
+	} else {
+		yaml = {};
 	}
 	return markdownContent;
 }
@@ -44,8 +46,4 @@ export function resetYamlToDefault() {
 			delete yaml[key];
 		}
 	}
-	// Copie toutes les clés de defaultYaml
-	// for (const [key, value] of Object.entries(defaultYaml)) {
-	// 	yaml[key] = value;
-	// }
 }

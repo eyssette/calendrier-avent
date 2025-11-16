@@ -1,9 +1,5 @@
 export function getDefaultMD() {
-	return `---
-reveal: true
----
-
-# Titre
+	return `# Titre
 
 Message initial
 

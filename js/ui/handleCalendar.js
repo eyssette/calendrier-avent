@@ -1,5 +1,6 @@
 import { yaml } from "../processMarkdown/yaml";
 import { dayImages } from "../config.js";
+import { getParamsFromUrl } from "../utils/urls.js";
 
 function shouldDisplayDay(
 	id,
@@ -36,7 +37,16 @@ export function handleCalendar(startDay) {
 		snowContainer.style.display = "none";
 	}
 	let showBouncingEffect;
-	let reveal = yaml && yaml.reveal ? yaml.reveal : false;
+
+	const params = getParamsFromUrl(window.location.search);
+	let reveal = false;
+	if (params.editor) {
+		reveal = true;
+	}
+	if (yaml && typeof yaml.reveal !== "undefined") {
+		reveal = yaml.reveal;
+	}
+
 	const hideBouncingEffet =
 		(yaml && yaml.bouncingEffect == false) ||
 		reveal == true ||
