@@ -7,7 +7,7 @@
 3. <label for="redirect">Copiez ici le lien vers votre fichier :</label> <input type="url" id="redirect" class="redirect-input" placeholder="Votre URL"> <button  class="redirect-button" data-input-id="redirect" >OK</button>
    :::
 
-:::info collapsible Voir les option plus avancées
+:::info collapsible Voir les options plus avancées
 Vous pouvez ajouter un en-tête YAML, avec différentes options ([voir un modèle avec toutes ces options](https://codimd.apps.education.fr/-PbI3GizQo6xV-TEiU1-sA?both))
 
 - `maths: true` pour activer l'écriture mathématique en Latex.
