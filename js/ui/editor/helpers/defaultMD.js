@@ -41,7 +41,7 @@ Contenu jour 6
 
 ## 7
 
-in-snow.png) ![](https://picsum.photos/200?random=7)
+![](https://picsum.photos/200?random=7)
 
 Contenu jour 7
 
@@ -77,7 +77,7 @@ Contenu jour 12
 
 ## 13
 
-in-snow.png) ![](https://picsum.photos/200?random=15)
+![](https://picsum.photos/200?random=15)
 
 Contenu jour 13
 
@@ -113,7 +113,7 @@ Contenu jour 18
 
 ## 19
 
-in-snow.png) ![](https://picsum.photos/200?random=23)
+![](https://picsum.photos/200?random=23)
 
 Contenu jour 19
 
@@ -167,7 +167,7 @@ Contenu jour 27
 
 ## 28
 
-in-snow.png) ![](https://picsum.photos/200?random=31)
+![](https://picsum.photos/200?random=31)
 
 Contenu jour 28
 
