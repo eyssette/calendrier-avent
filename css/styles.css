@@ -74,8 +74,7 @@ section.day {
 	}
 }
 
-.pastDate.noCustomImage.hasCustomTitle .dayImages,
-.currentDate.noCustomImage.hasCustomTitle .dayImages {
+.pastDate.noCustomImage.hasCustomTitle .dayImages {
 	display: none;
 }
 
