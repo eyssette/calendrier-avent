@@ -28,7 +28,7 @@ function initEditor() {
 	resetYamlToDefault();
 	document.body.classList.add("editMode");
 	const editorWrapper = document.querySelector(".editor-wrapper");
-	loadCSS("/css/editor.min.css", "editor");
+	loadCSS("../css/editor.min.css", "editor");
 	if (editorWrapper === null) {
 		initMarkdownEditor();
 	} else {
