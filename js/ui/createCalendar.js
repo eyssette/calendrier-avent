@@ -16,6 +16,7 @@ export function createCalendar(data, startDay) {
 	titleElement.innerHTML = title;
 	if (initialMessage.length > 0) {
 		initialMessageElement.innerHTML = initialMessage;
+		initialMessageElement.style.display = "block";
 		initialMessageElement.style.visibility = "visible";
 	} else {
 		initialMessageElement.style.display = "none";
