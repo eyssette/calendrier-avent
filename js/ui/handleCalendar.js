@@ -1,6 +1,6 @@
 import { yaml } from "../processMarkdown/yaml";
 import { dayImages } from "../config.js";
-import { getParamsFromUrl, redirectToUrl } from "../utils/urls.js";
+import { redirectToUrl } from "../utils/urls.js";
 
 function shouldDisplayDay(
 	id,
@@ -38,9 +38,9 @@ export function handleCalendar(startDay) {
 	}
 	let showBouncingEffect;
 
-	const params = getParamsFromUrl(window.location.search);
+	const isEditorMode = document.body.classList.contains("editMode");
 	let reveal = false;
-	if (params.editor) {
+	if (isEditorMode) {
 		reveal = true;
 	}
 	if (yaml && typeof yaml.reveal !== "undefined") {
