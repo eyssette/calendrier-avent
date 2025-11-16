@@ -42,14 +42,17 @@ export function parseMarkdown(markdownContent) {
 		// Extraction du titre du jour (qui correspond à la première ligne)
 		const dayLineEndIndex = dayBlock.indexOf("\n");
 		const dayTitle = dayBlock.substring(0, dayLineEndIndex).trim();
-		const daytTitleHTML = markdownToHTML(dayTitle)
-			.replaceAll("<p>", "")
-			.replaceAll("</p>", "");
 		const hasTitle = parseInt(dayTitle) ? false : true;
+		const dayTitleHTML = hasTitle
+			? day +
+				"<span>" +
+				markdownToHTML(dayTitle).replaceAll("<p>", "").replaceAll("</p>", "") +
+				"</span>"
+			: dayTitle;
 
 		// Génération de la structure HTML pour le jour
 		const cssHasTitle = hasTitle ? "hasTitle" : "";
-		const dayHtmlStart = `<section markdown class="day ${cssHasTitle}" id="day-${day}"><h2>${daytTitleHTML}</h2>`;
+		const dayHtmlStart = `<section markdown class="day ${cssHasTitle}" id="day-${day}"><h2>${dayTitleHTML}</h2>`;
 
 		// Extraction du contenu
 		let dayContent = dayBlock.substring(dayLineEndIndex + 1).trim();
