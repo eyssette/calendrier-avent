@@ -314,6 +314,11 @@ iframe {
 	max-width: 100%;
 }
 
+pre {
+	width: fit-content;
+	max-width: 90%;
+	padding: 1em 6em 1em 2em;
+}
 code {
 	word-break: break-word;
 	white-space: break-spaces;

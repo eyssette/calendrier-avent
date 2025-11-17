@@ -1,4 +1,5 @@
 import { markdownToHTML } from "../../../processMarkdown/markdownToHTML.js";
+import { copycode } from "../../helpers/copycode.js";
 
 export function createHelpButton(editorWrapper) {
 	const button = document.createElement("button");
@@ -24,13 +25,17 @@ On fait des cases en suivant l'un des modèles ci-dessous.
 Exemple :
 - image au début (qui s'affiche dans la case quand le jour est visible)
 - titre simple = numéro de la case
+\`\`\`
 
+\`\`\`
 ## Titre case
 
 Exemple :
 - pas d'image au début
 - titre personnalisé
+\`\`\`
 
+\`\`\`
 ## Titre case
 
 ![](https://picsum.photos/200?random=2)
@@ -38,7 +43,9 @@ Exemple :
 Exemple : 
 - image au début
 - titre personnalisé
+\`\`\`
 
+\`\`\`
 ## 4
 
 Exemple :
@@ -46,12 +53,30 @@ Exemple :
 - pas de titre personnalisé
 \`\`\`
 
+
 ### Options avancées
 
 
 #### Dans l'en-tête YAML
 
 Vous pouvez ajouter un en-tête YAML, avec différentes options ([voir un modèle avec toutes ces options](https://codimd.apps.education.fr/-PbI3GizQo6xV-TEiU1-sA?both))
+
+Exemple :
+
+\`\`\`
+---
+maths: false
+random: false
+bouncingEffet: true
+reveal: false
+revealAfter: 24/12/2024
+displayFrom: 01/12/2024
+style: |
+  .day {
+     border: 3px solid red;
+  }
+---
+\`\`\`
 
 - \`maths: true\` pour activer l'écriture mathématique en Latex.
 - \`random: true\` pour afficher les jours de manière aléatoire.
@@ -98,6 +123,7 @@ Si vous souhaitez cacher l'URL de votre fichier, vous pouvez [encoder l'URL en b
 			</div>
 		`;
 		document.body.appendChild(modal);
+		copycode();
 
 		// Si on clique ailleurs que dans le contenu de la modale, on la ferme
 		setTimeout(() => {

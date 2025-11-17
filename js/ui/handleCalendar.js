@@ -2,6 +2,7 @@ import { yaml } from "../processMarkdown/yaml";
 import { dayImages } from "../config.js";
 import { redirectToUrl } from "../utils/urls.js";
 import { processAudio } from "./audio.js";
+import { copycode } from "./helpers/copycode.js";
 
 function shouldDisplayDay(
 	id,
@@ -154,6 +155,7 @@ export function handleCalendar(startDay) {
 
 		const dayInnerContent = dayContent.querySelector(".content");
 
+		// Gestion du plugin text2quiz
 		if (yaml && yaml.plugins && yaml.plugins.includes("text2quiz")) {
 			const interval = setInterval(() => {
 				if (window.processText2quiz) {
@@ -161,8 +163,13 @@ export function handleCalendar(startDay) {
 					dayInnerContent.innerHTML = window.processText2quiz(
 						dayInnerContent.innerHTML,
 					);
+					// Pour les blocs de code restants, on ajoute le bouton de copie dans le presse-papier
+					copycode();
 				}
 			}, 200);
+		} else {
+			// Pour les blocs de code, on ajoute le bouton de copie dans le presse-papier
+			copycode();
 		}
 
 		const closeButton = daySection.querySelector(".closeButton");
