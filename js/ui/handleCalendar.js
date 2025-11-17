@@ -1,6 +1,7 @@
 import { yaml } from "../processMarkdown/yaml";
 import { dayImages } from "../config.js";
 import { redirectToUrl } from "../utils/urls.js";
+import { processAudio } from "./audio.js";
 
 function shouldDisplayDay(
 	id,
@@ -163,6 +164,8 @@ export function handleCalendar(startDay) {
 			if (daySection.classList.contains("currentDate")) {
 				document.querySelector(".currentDate").classList.remove("bounce");
 			}
+			const dayInnerContent = dayContent.querySelector(".content");
+			dayInnerContent.innerHTML = processAudio(dayInnerContent.innerHTML);
 			dayContent.style.display = "block";
 			daySection.classList.add("active");
 			event.stopPropagation();
