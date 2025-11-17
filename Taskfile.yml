@@ -10,6 +10,7 @@ tasks:
       - task: rollup-build
 
   rollup-build:
+    deps: [npm:install]
     sources:
       - index.md
       - js/**/*.js
@@ -23,6 +24,15 @@ tasks:
     method: timestamp
     cmds:
       - npx rollup --config
+
+  npm:install:
+    sources:
+      - package.json
+      - package-lock.json
+    generates:
+      - node_modules/.package-lock.json
+    cmds:
+      - npm install
 
   bump:
     generates:
