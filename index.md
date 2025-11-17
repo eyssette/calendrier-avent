@@ -5,7 +5,7 @@
 1. Ouvrez l'éditeur en ligne : <button class="openEditor">ouvrir l'éditeur</button>.
 2. Une fois votre calendrier terminé, copiez le contenu dans un fichier sur [CodiMD](https://codimd.apps.education.fr/) ou un service identique.
 3. <label for="redirect">Copiez ici le lien vers votre fichier :</label> <input type="url" id="redirect" class="redirect-input" placeholder="Votre URL"> <button  class="redirect-button" data-input-id="redirect" >OK</button>
-   :::
+:::
 
 :::info collapsible Voir les options plus avancées
 
@@ -19,7 +19,7 @@ Vous pouvez ajouter un en-tête YAML, avec différentes options ([voir un modèl
 - `reveal: true` pour que le contenu de chaque case soit visible.
 - `revealAfter: dd/mm/aaaa` : date à partir de laquelle tout reste visible.
 - `displayFrom: dd/mm/aaaa` : date à partir de laquelle le calendrier commence à compter les jours (si on veut les afficher un autre mois qu'en décembre).
-- `style:` pour personnaliser l'apparence en CSS
+- `style:` pour personnaliser l'apparence en CSS.
 
 ### Dans le contenu d'une case
 
