@@ -1,5 +1,11 @@
 # Changelog
 
+## 2.3.0 (2025-11-17)
+
+### Feat
+
+- choix possible de la date à laquelle une case s'affiche avec !Date: jj/mm/aaaa
+
 ## 2.2.0 (2025-11-17)
 
 ### Feat
