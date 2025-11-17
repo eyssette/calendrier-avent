@@ -10,8 +10,24 @@ function shouldDisplayDay(
 	currentMonth,
 	displayFromMonth,
 	displayFrom,
+	dayContent,
 ) {
 	let shouldDisplay = false;
+	if (dayContent.innerHTML.includes("!Date: ")) {
+		const dateLine = dayContent.innerHTML.match(
+			/!Date:\s*(\d{1,2})\/(\d{1,2})\/(\d{2,4})/,
+		);
+		if (dateLine) {
+			const day = parseInt(dateLine[1], 10);
+			const month = parseInt(dateLine[2], 10);
+			const year = dateLine[3].length === 2 ? "20" + dateLine[3] : dateLine[3];
+			const dateToDisplay = new Date(year, month - 1, day);
+			const currentDate = new Date();
+			dayContent.innerHTML = dayContent.innerHTML.replace(dateLine[0], "");
+			shouldDisplay = currentDate >= dateToDisplay;
+		}
+		return shouldDisplay;
+	}
 	if (displayFrom) {
 		shouldDisplay =
 			currentMonth == displayFrom.month &&
@@ -125,6 +141,7 @@ export function handleCalendar(startDay) {
 				currentMonth,
 				displayFromMonth,
 				displayFrom,
+				dayContent,
 			) ||
 			reveal
 		) {

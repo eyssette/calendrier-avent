@@ -16,8 +16,8 @@ Vous pouvez ajouter un en-tête YAML, avec différentes options ([voir un modèl
 - `random: true` pour afficher les jours de manière aléatoire.
 - `bouncingEffet: false` pour désactiver l'effet de rebondissement du jour actuel.
 - `reveal: true` pour que le contenu de chaque case soit visible.
-- `revealAfter: dd/mm/aaaa` : date à partir de laquelle tout reste visible.
-- `displayFrom: dd/mm/aaaa` : date à partir de laquelle le calendrier commence à compter les jours (si on veut les afficher un autre mois qu'en décembre).
+- `revealAfter: jj/mm/aaaa` : date à partir de laquelle tout reste visible.
+- `displayFrom: jj/mm/aaaa` : date à partir de laquelle le calendrier commence à compter les jours (si on veut les afficher un autre mois qu'en décembre).
 - `style:` pour personnaliser l'apparence en CSS
 
 ### Dans le contenu d'une case
@@ -36,6 +36,14 @@ Vous pouvez déclencher un son à l'ouverture d'une case en écrivant :
 
 ```
 !Audio: URL_du_fichier_audio
+```
+
+#### Choisir une date précise pour afficher la case
+
+On peut choisir la date à laquelle la case va s'afficher en écrivant :
+
+```
+!Date: jj/mm/aaaa
 ```
 
 ### Autres options
