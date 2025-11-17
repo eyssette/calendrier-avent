@@ -142,9 +142,6 @@ section.pastDate > h2 {
 
 section.dayContent {
 	display: none;
-}
-
-section.dayContent {
 	background: #fff;
 	border-radius: 8px;
 	box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
@@ -165,6 +162,7 @@ section.dayContent {
 	right: 0;
 	margin: 5% auto;
 	cursor: auto;
+	overscroll-behavior: contain;
 }
 
 section.day.active .dayContent {
@@ -350,6 +348,10 @@ code {
 	.day h2 {
 		font-size: 1.75em !important;
 	}
+	.day .content h2 {
+		font-size: 1.5em !important;
+		word-wrap: normal;
+	}
 	.day img {
 		width: 110px;
 		height: 120px !important;
@@ -368,6 +370,8 @@ code {
 		width: 75% !important;
 		margin: 5% !important;
 		font-size: 1.5em !important;
+		height: 85% !important;
+		max-height: 85vh !important;
 	}
 	.active .dayContent {
 		display: block !important;
