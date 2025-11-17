@@ -1,6 +1,6 @@
 {
 	"name": "calendrier-avent",
-	"version": "2.1.0",
+	"version": "2.1.1",
 	"description": "Un outil pour créer un calendrier de l'avent à partir d'un fichier en Markdown",
 	"main": "script.min.js",
 	"devDependencies": {

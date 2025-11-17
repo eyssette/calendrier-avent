@@ -1,5 +1,17 @@
 # Changelog
 
+## 2.1.1 (2025-11-17)
+
+### Fix
+
+- gestion du cas où il n'y a ni titre ni message initial
+
+### Chore
+
+- pas de formatage automatique du Markdown
+- configuration commitizen
+- configuration Taskfile
+
 ## 2.1.0 (2025-11-17)
 
 ### Feat
