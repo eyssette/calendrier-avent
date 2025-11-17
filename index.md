@@ -8,6 +8,9 @@
    :::
 
 :::info collapsible Voir les options plus avancées
+
+### Dans l'en-tête YAML
+
 Vous pouvez ajouter un en-tête YAML, avec différentes options ([voir un modèle avec toutes ces options](https://codimd.apps.education.fr/-PbI3GizQo6xV-TEiU1-sA?both))
 
 - `maths: true` pour activer l'écriture mathématique en Latex.
@@ -18,13 +21,28 @@ Vous pouvez ajouter un en-tête YAML, avec différentes options ([voir un modèl
 - `displayFrom: dd/mm/aaaa` : date à partir de laquelle le calendrier commence à compter les jours (si on veut les afficher un autre mois qu'en décembre).
 - `style:` pour personnaliser l'apparence en CSS
 
+### Dans le contenu d'une case
+
+#### Images personnalisées pour les cases cachées
+
 Par défaut, l'application choisit l'image des cases cachées. Pour utiliser vos propres images, ajoutez simplement une image avant celle qui s'affiche quand le jour est visible :
 
 ```
 ![](URL_image_case_cachée) ![](URL_image_case_visible)
 ```
 
+#### Déclenchement d'un son à l'ouverture d'une case
+
+Vous pouvez déclencher un son à l'ouverture d'une case en écrivant :
+
+```
+!Audio: URL_du_fichier_audio
+```
+
+### Autres options
+
 Si vous souhaitez cacher l'URL de votre fichier, vous pouvez [encoder l'URL en base64](https://www.base64encode.org/), et utiliser le paramètre `?c=1` : `https://calendrier-avent.forge.apps.education.fr/?c=1#ENCODED_URL`
+
 :::
 
 Pour la démonstration ci-dessous, les 4 premiers jours sont visibles. Dans votre calendrier, les cases apparaîtront automatiquement chaque jour de décembre.
