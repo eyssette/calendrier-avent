@@ -1,5 +1,20 @@
 # Changelog
 
+## 2.2.0 (2025-11-17)
+
+### Feat
+
+- bouton de copie dans le presse-papier des blocs code (utile notamment pour l'aide)
+
+### Fix
+
+- **css**: amélioration de l'affichage du contenu d'une case sur petit écran + résolution problème de scroll sur la case qui conduisait parfois à un scroll de la page entière
+- **css**: césures automatiques pour les blocs de code (sinon cela posait problème pour l'affichage du contenu des cases sur petit écran)
+
+### Chore
+
+- task build - vérification npm:install + exécution de cette tâche avant le commit pour commitizen
+
 ## 2.1.1 (2025-11-17)
 
 ### Fix
