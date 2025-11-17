@@ -1,5 +1,6 @@
 import { load as loadYAML } from "../externals/js-yaml.js";
 import { loadScript, loadCSS } from "../utils/urls.js";
+import { allowedPlugins, pluginsDependencies } from "../config.js";
 
 export let yaml;
 
@@ -29,6 +30,41 @@ export function processYAML(markdownContent) {
 				const styleElement = document.createElement("style");
 				styleElement.innerHTML = yaml.style.replaceAll("\\", "");
 				document.body.appendChild(styleElement);
+			}
+			// Gestion des add-ons (scripts et css en plus)
+			if (yaml.plugins) {
+				yaml.plugins = yaml.plugins.toString();
+				yaml.plugins = yaml.plugins.replaceAll(" ", "").split(",");
+				let pluginsDependenciesArray = [];
+				// On ajoute aussi les dépendances pour chaque add-on
+				for (const [plugin, pluginDependencies] of Object.entries(
+					pluginsDependencies,
+				)) {
+					if (yaml.plugins.includes(plugin)) {
+						for (const pluginDependencie of pluginDependencies) {
+							pluginsDependenciesArray.push(pluginDependencie);
+						}
+					}
+				}
+				yaml.plugins.push(...pluginsDependenciesArray);
+				// Pour chaque add-on, on charge le JS ou le CSS correspondant
+				for (const desiredPlugin of yaml.plugins) {
+					const pluginsPromises = [];
+					const addDesiredPlugin = allowedPlugins[desiredPlugin];
+					if (addDesiredPlugin) {
+						if (addDesiredPlugin.js) {
+							pluginsPromises.push(
+								loadScript(addDesiredPlugin.js, desiredPlugin),
+							);
+						}
+						if (addDesiredPlugin.css) {
+							pluginsPromises.push(
+								loadCSS(addDesiredPlugin.css, desiredPlugin),
+							);
+						}
+						Promise.all(pluginsPromises);
+					}
+				}
 			}
 		} catch (e) {
 			console.log("erreur processYAML : " + e);

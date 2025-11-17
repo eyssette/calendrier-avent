@@ -152,6 +152,19 @@ export function handleCalendar(startDay) {
 			}
 		}
 
+		const dayInnerContent = dayContent.querySelector(".content");
+
+		if (yaml && yaml.plugins && yaml.plugins.includes("text2quiz")) {
+			const interval = setInterval(() => {
+				if (window.processText2quiz) {
+					clearInterval(interval);
+					dayInnerContent.innerHTML = window.processText2quiz(
+						dayInnerContent.innerHTML,
+					);
+				}
+			}, 200);
+		}
+
 		const closeButton = daySection.querySelector(".closeButton");
 
 		// Afficher dayContent lors du clic sur day
@@ -164,10 +177,18 @@ export function handleCalendar(startDay) {
 			if (daySection.classList.contains("currentDate")) {
 				document.querySelector(".currentDate").classList.remove("bounce");
 			}
-			const dayInnerContent = dayContent.querySelector(".content");
 			dayInnerContent.innerHTML = processAudio(dayInnerContent.innerHTML);
 			dayContent.style.display = "block";
 			daySection.classList.add("active");
+			if (yaml && yaml.plugins && yaml.plugins.includes("text2quiz")) {
+				setTimeout(() => {
+					const iframesText2quiz =
+						dayContent.querySelectorAll(".iframeText2quiz");
+					iframesText2quiz.forEach((iframe) => {
+						iframe.style.visibility = "visible";
+					});
+				}, 500);
+			}
 			event.stopPropagation();
 		});
 

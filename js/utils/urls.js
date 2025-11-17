@@ -65,30 +65,44 @@ export function loadScript(src, name) {
 	const prefixScript = "script-";
 	// Fonction pour charger des scripts
 	const alreadyLoaded = document.querySelector("#" + prefixScript + name);
-	if (!alreadyLoaded) {
-		return new Promise((resolve, reject) => {
+	return new Promise((resolve, reject) => {
+		if (!alreadyLoaded) {
 			const script = document.createElement("script");
 			script.src = src;
 			script.id = prefixScript + name;
 			script.onload = resolve;
 			script.onerror = reject;
 			document.head.appendChild(script);
-		});
-	}
+		} else {
+			resolve();
+		}
+	});
 }
+
 export function loadCSS(src, name) {
 	const prefixCSS = "css-";
 	// Fonction pour charger des CSS
 	const cssElement = document.querySelector("#" + prefixCSS + name);
 	if (!cssElement) {
 		return new Promise((resolve, reject) => {
-			const styleElement = document.createElement("link");
-			styleElement.href = src;
-			styleElement.id = prefixCSS + name;
-			styleElement.rel = "stylesheet";
-			styleElement.onload = resolve;
-			styleElement.onerror = reject;
-			document.body.appendChild(styleElement);
+			let styleElement;
+			if (src.startsWith("<style>")) {
+				styleElement = document.createElement("style");
+				styleElement.id = prefixCSS + name;
+				styleElement.textContent = src
+					.replace("<style>", "")
+					.replace("</style>", "");
+				resolve();
+			} else {
+				styleElement = document.createElement("link");
+				styleElement.href = src;
+				styleElement.id = prefixCSS + name;
+				styleElement.rel = "stylesheet";
+				styleElement.type = "text/css";
+				styleElement.onload = resolve;
+				styleElement.onerror = reject;
+			}
+			document.head.appendChild(styleElement);
 		});
 	}
 }

@@ -45,3 +45,12 @@ export const dayImages = [
 	"img/harmonic_Tree.png",
 	"img/secretlondon_chocolate_present.png",
 ];
+
+export const allowedPlugins = {
+	text2quiz: {
+		js: "js/plugins/text2quiz.js",
+		css: "<style>.iframeText2quiz{width:700px; height:650px; max-width: 100%; border:none} @media screen and (max-width: 834px){.iframeText2quiz{height:65vh;}}</style>",
+	},
+};
+
+export const pluginsDependencies = {};
