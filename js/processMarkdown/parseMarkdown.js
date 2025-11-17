@@ -14,12 +14,13 @@ export function parseMarkdown(markdownContent) {
 	const titleEndIndex = titleMatch
 		? titleStartIndex + titleMatch[0].length
 		: -1;
-	let calendarTitle = titleMatch
-		? titleMatch[1].trim()
-		: "Mon calendrier de l'Avent";
+	const calendarTitle = titleMatch ? titleMatch[1].trim() : "";
 
 	// Contenu principal après le titre
-	const mainContent = markdownContent.substring(titleEndIndex);
+	let mainContent = markdownContent.substring(titleEndIndex);
+	if (mainContent.startsWith("## ")) {
+		mainContent = "\n" + mainContent;
+	}
 	let calendarData = [];
 	let calendarMarkdown = [];
 
