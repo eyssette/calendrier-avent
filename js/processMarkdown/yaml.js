@@ -66,6 +66,10 @@ export function processYAML(markdownContent) {
 				styleElement.innerHTML = yaml.style.replaceAll("\\", "");
 				document.body.appendChild(styleElement);
 			}
+			if (yaml.backgroundImage) {
+				// On applique l'image de fond
+				document.body.style.backgroundImage = `url(${yaml.background})`;
+			}
 		} catch (e) {
 			console.log("erreur processYAML : " + e);
 		}
