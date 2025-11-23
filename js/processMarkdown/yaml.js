@@ -25,12 +25,6 @@ export function processYAML(markdownContent) {
 					),
 				]);
 			}
-			// Gestion des styles personnalisés en CSS
-			if (yaml.style) {
-				const styleElement = document.createElement("style");
-				styleElement.innerHTML = yaml.style.replaceAll("\\", "");
-				document.body.appendChild(styleElement);
-			}
 			// Gestion des add-ons (scripts et css en plus)
 			if (yaml.plugins) {
 				yaml.plugins = yaml.plugins.toString();
@@ -65,6 +59,12 @@ export function processYAML(markdownContent) {
 						Promise.all(pluginsPromises);
 					}
 				}
+			}
+			// Gestion des styles personnalisés en CSS
+			if (yaml.style) {
+				const styleElement = document.createElement("style");
+				styleElement.innerHTML = yaml.style.replaceAll("\\", "");
+				document.body.appendChild(styleElement);
 			}
 		} catch (e) {
 			console.log("erreur processYAML : " + e);
