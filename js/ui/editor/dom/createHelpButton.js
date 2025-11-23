@@ -79,7 +79,7 @@ style: |
 ---
 \`\`\`
 
-- \`backgroundImage: URL_image_de_fond\`\` pour changer l'image de fond.
+- \`backgroundImage: URL_image_de_fond\` pour changer l'image de fond.
 - \`maths: true\` pour activer l'écriture mathématique en Latex.
 - \`random: true\` pour afficher les jours de manière aléatoire.
 - \`bouncingEffet: false\` pour désactiver l'effet de rebondissement du jour actuel.
