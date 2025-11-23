@@ -136,6 +136,10 @@ section.pastDate {
 section.currentDate {
 	background: #34bb3570 !important;
 }
+.pastDate,
+.currentDate {
+	backdrop-filter: sepia(1);
+}
 section.pastDate > h2 {
 	color: white;
 }
