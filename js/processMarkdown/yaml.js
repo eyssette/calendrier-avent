@@ -68,7 +68,7 @@ export function processYAML(markdownContent) {
 			}
 			if (yaml.backgroundImage) {
 				// On applique l'image de fond
-				document.body.style.backgroundImage = `url(${yaml.background})`;
+				document.body.style.backgroundImage = `url(${yaml.backgroundImage})`;
 			}
 		} catch (e) {
 			console.log("erreur processYAML : " + e);
