@@ -21,9 +21,18 @@ export async function getMarkdownContentAndCreateCalendar() {
 	// On traite l'URL pour pouvoir récupérer correctement la source
 	let source = handleURL(url, { useCorsProxy: false });
 
+	const isMainWebsite =
+		window.location.hostname.startsWith("calendrier-avent.") ||
+		window.location.pathname == "/calendrier-avent/" ||
+		window.location.hostname.startsWith("127");
+
 	if (source === "") {
 		calendarData = parseMarkdown(md);
-		createCalendar(calendarData, startDay);
+		if (isMainWebsite) {
+			createCalendar(calendarData, startDay);
+		} else {
+			createCalendar(calendarData);
+		}
 		return;
 	}
 
