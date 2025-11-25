@@ -23,7 +23,8 @@ export async function getMarkdownContentAndCreateCalendar() {
 
 	const isMainWebsite =
 		window.location.hostname.startsWith("calendrier-avent.") ||
-		window.location.pathname == "/calendrier-avent/" ||
+		(window.location.hostname.startsWith("eyssette.") &&
+			window.location.pathname == "/calendrier-avent/") ||
 		window.location.hostname.startsWith("127");
 
 	if (source === "") {
