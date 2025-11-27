@@ -60,10 +60,10 @@ export function parseMarkdown(markdownContent) {
 			// Ligne contenant l'image et le reste du contenu après
 			const afterImage = dayContent.substring(firstLine.length).trim();
 			// Ajout de la structure HTML autour de la première image
-			const dayImagesHTML = markdownToHTML(firstLine).replace(
-				/^<p>/,
-				'<p class="dayImages">',
-			);
+			const dayImagesHTML = markdownToHTML(firstLine)
+				.replace(/^<p>/, '<p class="dayImages">')
+				// S'il y avait une image vide, on supprime le point d'exclamation qui reste dans le texte
+				.replace(" !", "");
 			dayContent =
 				`${dayImagesHTML}<section markdown class="dayContent"><p><button class="closeButton">X</button></p><section markdown class="content">` +
 				`<h2>${dayTitleInlineHTML}</h2>` +
